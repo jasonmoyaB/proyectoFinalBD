@@ -1,0 +1,179 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22 feb. 2025, 16:09:43
+    Author     : jason
+*/
+
+/* General body styles */
+body {
+    background-color: #ffffff;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    width: 50%;
+    height: 70px;
+    padding: 10px 60%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.384);
+    top: 0;
+}
+
+.logo {
+    justify-content: center;
+    align-items: center;
+    color: rgb(1, 141, 255);
+    font-weight: bold;
+    position: absolute;
+    left: 52px;
+    font-size: 50px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100px;
+}
+
+.logo:hover {
+    color: rgb(83, 110, 201);
+}
+
+.nav-link {
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(22, 118, 207);
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d6dce0;
+    transform: scale(1.1);
+    background-color: rgba(22, 118, 207, 0.082);
+}
+
+/* Main container */
+.container {
+    margin-top: 100px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: rgb(22, 118, 207);
+}
+
+/* Form styling */
+form {
+    background-color: rgba(128, 128, 128, 0.062);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 50%;
+}
+
+form label {
+    font-size: 18px;
+    color: rgb(22, 118, 207);
+    display: block;
+    margin-bottom: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: rgb(22, 118, 207);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: rgb(83, 110, 201);
+}
+
+/* Footer */
+footer {
+    margin-top: 5%;
+    background-color: #e0e0e06c;
+    color: rgb(22, 118, 207);
+    padding: 40px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(22, 118, 207);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-link {
+    color: rgb(22, 118, 207);
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #7bc6ff;
+}
+
+.footer-socials a {
+    color: rgb(22, 118, 207);
+    font-size: 24px;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #7bc6ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #7a7a7a;
+}
+
