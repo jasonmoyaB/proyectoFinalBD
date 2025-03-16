@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: url(https://images7.alphacoders.com/133/thumb-1920-1338609.png);
+}
+
+.login-container {
+    box-shadow: 1px 0px 8px rgba(255, 255, 255, 0.212);
+    height: 560px;
+    width: 450px;
+    margin-left: 15%;
+    margin-top: 12%;
+    border-radius: 40px;
+    backdrop-filter: blur(0.4rem);
+    -webkit-backdrop-filter: blur(0.4rem);
+    text-align: center;
+}
+
+.login-container h1 {
+    font-family: Arial;
+    margin-top: 15%;
+    color: #fff;
+}
+
+.login-input label, .login-password label {
+    display: block;
+    margin-top: 10%;
+    font-size: 25px;
+    color: #fff;
+}
+
+.login-input input, .login-password input {
+    padding: 2%;
+    width: 50%;
+    margin-top: 5%;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.075);
+    color: #fff;
+}
+
+.login-button input {
+    background-color: rgb(8, 114, 253);
+    color: white;
+    margin-top: 10%;
+    padding: 3%;
+    border-radius: 8px;
+    width: 60%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.login-button input:hover {
+    box-shadow: 1px 0px 8px rgba(0, 0, 0, 0.315);
+    color: grey;
+    transform: scale(1.1);
+}
+
+/* Ajuste de la posición del botón "Volver" */
+.volver {
+    text-align: center;
+    margin-top: 20px; /* Mueve el botón hacia abajo */
+}
+
+.volver a {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(255, 254, 254);
+}
+
+.volver a:hover {
+    color: rgba(228, 228, 228, 0.267);
+}
