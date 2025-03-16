@@ -1,0 +1,1 @@
+select * from fide_usuarios_tb;
