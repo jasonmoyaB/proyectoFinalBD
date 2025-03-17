@@ -1,4 +1,4 @@
-package controlador;
+package Controlador;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -6,32 +6,48 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import Modelo.UsuarioDAO;
+import jakarta.servlet.annotation.WebServlet;
 
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+
+    // Datos de usuario "quemados" para admin y user
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "1234";
+    private static final String USER_USERNAME = "user";
+    private static final String USER_PASSWORD = "user123";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("usuario");
+        String password = request.getParameter("clave");
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        
-        if (usuarioDAO.validarUsuario(username, password)) {
-            System.out.println("Usuario validado correctamente: " + username);
-            String rol = usuarioDAO.obtenerRolUsuario(username, password);
-            System.out.println("Rol obtenido: " + rol);
+        String role = null;
 
+        // Validar el login
+        if (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)) {
+            role = "admin"; // Asignar rol de administrador
+        } else if (USER_USERNAME.equals(username) && USER_PASSWORD.equals(password)) {
+            role = "user";  // Asignar rol de usuario regular
+        }
+
+        if (role != null) {
+            // Si el login es exitoso, guardamos la sesión con el rol
             HttpSession session = request.getSession();
             session.setAttribute("user", username);
-            session.setAttribute("role", rol);
+            session.setAttribute("role", role); // Guardamos el rol del usuario
 
-            System.out.println("Guardando en sesión -> Usuario: " + session.getAttribute("user"));
-            System.out.println("Guardando en sesión -> Rol: " + session.getAttribute("role"));
-
+            // Redirigir a la página de bienvenida
             response.sendRedirect("bienvenido.jsp");
         } else {
-            System.out.println("Error: Usuario o contraseña incorrectos");
+            // Si las credenciales son incorrectas, redirigir al login con un mensaje de error
             response.sendRedirect("login.jsp?error=invalid");
         }
     }
 }
+
+
+
+
+
+
 

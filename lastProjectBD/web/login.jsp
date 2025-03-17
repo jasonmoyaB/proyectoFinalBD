@@ -30,13 +30,10 @@
                 <div class="volver">
                     <a href="index.jsp">Volver</a>
                 </div>
-                <% if (request.getParameter("error") != null) { %>
-                    <p style="color:red;">Usuario o contraseña incorrectos</p>
-                <% } %>
+                
             </div>
         </form>
     </body>
-</html>
 
 
 

@@ -21,5 +21,7 @@ public class AgregarUsuarioServlet extends HttpServlet {
       } else {
          response.sendRedirect("bienvenido.jsp?error=usuario");
       }
+
    }
 }
+
