@@ -177,3 +177,72 @@ footer {
     color: #7a7a7a;
 }
 
+
+
+/*PARA ADMINS*/
+/*AGREGAR CLIENTES*/
+/* Estilos para el submenú */
+.sub-menu {
+    background-color: #e0e0e06c;
+    height: 70px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Alinea los elementos a la izquierda */
+    
+}
+
+.addCustomers {
+    padding: 10px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(22, 118, 207);
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+.addCustomers:hover{
+    color: grey;
+    transform: scale(1.1);
+    background-color: rgba(22, 118, 207, 0.082);
+}
+/*para el index de solo admin*/
+
+
+.parent {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-top: 5%;
+}
+
+.box {
+    background-color: #f0f0f0;
+    padding: 20px 30px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: rgb(22, 118, 207);
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.text-box {
+    background-color: #f3f3f3; /* Color de fondo */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px;
+    color: #333; /* Color del texto */
+    width: fit-content; /* Ajusta el ancho al contenido */
+    border-left: 5px solid #1676cf; /* Borde lateral */
+}
+
+.box:hover {
+    background-color: rgba(22, 118, 207, 0.1);
+    transform: scale(1.05);
+    color: #555;
+}
+
+        

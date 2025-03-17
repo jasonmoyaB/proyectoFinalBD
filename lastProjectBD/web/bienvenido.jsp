@@ -25,75 +25,79 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenida</title>
-    <link rel="stylesheet" href="styles/styleBienvenida.css"/>
-</head>
-<body>
-    <header>
-        <nav class="nav">
-            <ul>
-                <a class="logo" href="">CODINGRAPH;</a>
-                <a class="nav-link" href="index.jsp">Log-out</a>
-            </ul>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bienvenida</title>
+        <link rel="stylesheet" href="styles/styleBienvenida.css"/>
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul>
+                    <a class="logo" href="">CODINGRAPH;</a>
+                    <a class="nav-link" href="index.jsp">Log-out</a>
+                </ul>
+            </nav>
+        </header>
 
-    <div class="container">
-        <h1>Bienvenido, <%= username %>!</h1>
-        <h2>
-            <% if ("admin".equals(rol)) { %>
+        <div class="container">
+            <nav class="sub-menu">
+                <a class="addCustomers" href="addCostumers.jsp">Agregar Clientes</a>
+                <a class="addCustomers" href="addSuppliers.jsp">Agregar Proveedores</a>
+                <a class="addCustomers" href="addUsers.jsp">Agregar Usuarios</a>
+            </nav>
+
+            <h1>Bienvenido, <%= username %>!</h1>
+            <h2>
+                <% if ("admin".equals(rol)) { %>
                 Bienvenido al panel de administración.
-            <% } else if ("user".equals(rol)) { %>
+                <% } else if ("user".equals(rol)) { %>
                 Bienvenido, usuario regular.
-            <% } %>
-        </h2>
+                <% } %>
+            </h2>
 
-        <% if ("admin".equals(rol)) { %>
-        <!-- Contenido exclusivo para administradores -->
-        <h3>Administrar roles</h3>
-        <form action="AgregarRolServlet" method="post" id="rolForm">
-            <label for="nombre_rol">Nombre del Rol:</label>
-            <input type="text" id="nombre_rol" name="nombre_rol" required>
-            <button type="submit">Agregar Rol</button>
-        </form>
+            <% if ("admin".equals(rol)) { %>
+            <!-- Contenido exclusivo para administradores -->
 
-        <h3>Agregar un nuevo usuario</h3>
-        <form action="AgregarUsuarioServlet" method="post">
-            <label for="nombre_usuario">Nombre:</label>
-            <input type="text" id="nombre_usuario" name="nombre_usuario" required>
-
-            <label for="correo">Correo:</label>
-            <input type="email" id="correo" name="correo" required>
-
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" required>
-
-            <label for="id_rol">Seleccionar Rol:</label>
-            <select id="id_rol" name="id_rol" required>
-                <option value="admin">Administrador</option>
-                <option value="user">Usuario</option>
-            </select>
-
-            <button type="submit">Agregar Usuario</button>
-        </form>
-        <% } else if ("user".equals(rol)) { %>
-        <!-- Contenido exclusivo para usuarios -->
-        <h3>Contenido exclusivo para usuarios.</h3>
-        <% } %>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <h2>CODINGRAPH;</h2>
+            <div class="parent">
+                <div class="box addC">Agregar Clientes
+                    <p class="text-box">Aquí puedes gestionar los clientes:<br> agregar, editar o eliminar.</p>
+                </div>
+                <div class="box addP">Agregar Proveedores
+                    <p class="text-box">Aquí puedes gestionar los proveedores:<br> agregar nuevos proveedores <br> y mantener su información actualizada.</p>
+                </div>
+                <div class="box addU">Agregar Usuarios
+                    <p class="text-box">
+                        Aquí puedes agregar nuevos usuarios, <br> 
+                        asignarles roles y <br> 
+                        mantener su información actualizada.
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
 
-</body>
+
+
+
+            <% } else if ("user".equals(rol)) { %>
+            <!-- Contenido exclusivo para usuarios -->
+            <h3>Contenido exclusivo para usuarios.</h3>
+            <% } %>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>CODINGRAPH;</h2>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CODINGRAPH;. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </body>
 </html>
 
 
