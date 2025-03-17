@@ -1,27 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexion {
-   Connection con;
-   String url = "jdbc:oracle:thin:@localhost:1521:xe";
-   String user = "proyectoMain";
-   String pass = "mbrenes12";
-
-   public Connection conectar() {
-      try {
-         Class.forName("oracle.jdbc.driver.OracleDriver");
-         this.con = DriverManager.getConnection(this.url, this.user, this.pass);
-         System.out.println("Conexión exitosa a la base de datos.");
-      } catch (Exception var2) {
-         var2.printStackTrace();
-      }
-
-      return this.con;
-   }
+    private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe"; // Asegúrate de que estos valores sean correctos
+    private static final String USER = "proyectoMain";
+    private static final String PASSWORD = "mbrenes12";
+    
+    public Connection conectar() {
+        Connection conn = null;
+        try {
+            // Cargar el driver de Oracle
+            Class.forName("oracle.jdbc.OracleDriver");
+            // Establecer la conexión
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Conexión exitosa a la base de datos.");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return conn;
+    }
 }
+

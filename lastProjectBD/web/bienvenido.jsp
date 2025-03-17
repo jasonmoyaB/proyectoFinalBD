@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="java.util.List" %>
-<%@ page import="modelo.RolDAO" %>
+<%@ page import="Modelo.RolDAO" %>  <!-- Aquí importamos RolDAO desde el paquete modelo -->
 
 <%
     // Obtener la sesión
@@ -95,6 +95,8 @@
 
 </body>
 </html>
+
+
 
 
 
