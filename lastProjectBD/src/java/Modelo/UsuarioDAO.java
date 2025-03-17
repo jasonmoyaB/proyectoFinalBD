@@ -3,12 +3,10 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class UsuarioDAO {
     Conexion conexion = new Conexion();
 
-    // Método para validar usuario
     public boolean validarUsuario(String username, String password) {
         String sql = "SELECT * FROM fide_usuarios_tb WHERE usuario = ? AND contraseña = ?";
         try (Connection con = conexion.conectar();
@@ -32,7 +30,6 @@ public class UsuarioDAO {
         }
     }
 
-    // Método para obtener el rol de un usuario
     public String obtenerRolUsuario(String username, String password) {
         String sql = "SELECT r.nombre_rol FROM fide_usuarios_tb u " +
                      "JOIN fide_roles_tb r ON u.id_rol = r.id_rol " +
@@ -59,38 +56,10 @@ public class UsuarioDAO {
         }
     }
 
-    // Método para agregar un nuevo usuario
-    public boolean agregarUsuario(String nombreUsuario, String correo, String contraseña, String rol, int idRol, int idDepartamento) {
-        String sql = "INSERT INTO fide_usuarios_tb (usuario, correo, contraseña, id_rol, id_departamento) " +
-                     "VALUES (?, ?, ?, ?, ?)";
-        
-        try (Connection con = conexion.conectar();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            // Establecer los valores para la inserción en la base de datos
-            ps.setString(1, nombreUsuario);      // Nombre de usuario
-            ps.setString(2, correo);             // Correo
-            ps.setString(3, contraseña);        // Contraseña
-            ps.setInt(4, idRol);                // ID Rol
-            ps.setInt(5, idDepartamento);       // ID Departamento
-            
-            int filasAfectadas = ps.executeUpdate();
-            
-            if (filasAfectadas > 0) {
-                System.out.println("Usuario agregado exitosamente: " + nombreUsuario);
-                return true;
-            } else {
-                System.out.println("Error al agregar usuario.");
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Error al agregar el usuario: " + e.getMessage());
-            return false;
-        }
+    public boolean agregarUsuario(String nombreUsuario, String correo, String contraseña, String rol) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
-
 
 
 
