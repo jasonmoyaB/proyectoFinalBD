@@ -131,3 +131,24 @@ BEGIN
     COMMIT;
 END;
 
+BEGIN
+    -- inserciones de departamentos utilizando el procedimiento insertar_departamentos
+    insertar_departamentos(16, 'Seguridad');
+    insertar_departamentos(17, 'Innovación');
+    insertar_departamentos(18, 'Desarrollo de Producto');
+    insertar_departamentos(19, 'Comunicación Corporativa');
+    insertar_departamentos(20, 'Gestión de Proyectos');
+    insertar_departamentos(21, 'Redes y Comunicaciones');
+    insertar_departamentos(22, 'Gestión de Talento');
+    insertar_departamentos(23, 'Servicio al Cliente');
+    insertar_departamentos(24, 'Expansión de Mercado');
+    insertar_departamentos(25, 'Auditoría Interna');
+    insertar_departamentos(26, 'Relaciones Internacionales');
+    insertar_departamentos(27, 'Estrategia y Planeación');
+    insertar_departamentos(28, 'Alianzas Estratégicas');
+    insertar_departamentos(29, 'Desarrollo de Negocios');
+    insertar_departamentos(30, 'Customer Success');
+    
+    COMMIT;
+END;
+
