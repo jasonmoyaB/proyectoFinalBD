@@ -34,8 +34,7 @@ end;
 
 
     
-    commit;
-end;  
+
 create or replace procedure insertar_departamentos(
     p_id_departamento in number,
     p_nombre_departamento in varchar
@@ -65,6 +64,7 @@ begin
     
     commit;
 end;
+ALTER PROCEDURE insertar_roles COMPILE;
 
 create or replace procedure insertar_usuarios (
     p_id_usuario in number,
@@ -83,9 +83,7 @@ begin
     
     insertar_usuarios(1, 'Jason Moya', 'jason.moyabre.es@gmail.com', 'jasonmoya12', 1, 1);
     insertar_usuarios(2, 'Jorge Pérez', 'jorge@gmail.com', 'jorge12', 2, 2);
-    insertar_usuarios(3, 'Maria López', 'maria.lopez@gmail.com', 'maria123', 3, 3);
-    insertar_usuarios(4, 'Carlos García', 'carlos.garcia@gmail.com', 'carlos123', 4, 4);
-    insertar_usuarios(5, 'Ana Rodríguez', 'ana.rodriguez@gmail.com', 'ana1234', 5, 5);
+    insertar_usuarios(3, 'Maria López', 'maria.lopez@gmail.com', 'maria123', 3, 3);  
     commit;
 end;
 
@@ -105,7 +103,56 @@ begin
     end loop;
 end;
 
+select * from fide_roles_tb;
+
+
+
+BEGIN
+    -- inserciones utilizando el procedimiento insertar_roles
+    insertar_roles(15, 'scrum master');
+    insertar_roles(16, 'coordinador');
+    insertar_roles(17, 'administrador de sistema');
+    insertar_roles(18, 'analista de datos');
+    insertar_roles(19, 'ingeniero de software');
+    insertar_roles(20, 'jefe de proyecto');
+    insertar_roles(21, 'programador junior');
+    insertar_roles(22, 'programador senior');
+    insertar_roles(23, 'arquitecto de software');
+    insertar_roles(24, 'consultor');
+    insertar_roles(25, 'diseñador de interfaz');
+    insertar_roles(26, 'ingeniero de calidad');
+    insertar_roles(27, 'administrador de infraestructura');
+    insertar_roles(28, 'gestor de proyectos');
+    insertar_roles(29, 'auditor de seguridad');
+    insertar_roles(30, 'analista de soporte técnico');
+    
+    COMMIT;
+END;
+
+BEGIN
+    -- inserciones de departamentos utilizando el procedimiento insertar_departamentos
+    insertar_departamentos(16, 'Seguridad');
+    insertar_departamentos(17, 'Innovación');
+    insertar_departamentos(18, 'Desarrollo de Producto');
+    insertar_departamentos(19, 'Comunicación Corporativa');
+    insertar_departamentos(20, 'Gestión de Proyectos');
+    insertar_departamentos(21, 'Redes y Comunicaciones');
+    insertar_departamentos(22, 'Gestión de Talento');
+    insertar_departamentos(23, 'Servicio al Cliente');
+    insertar_departamentos(24, 'Expansión de Mercado');
+    insertar_departamentos(25, 'Auditoría Interna');
+    insertar_departamentos(26, 'Relaciones Internacionales');
+    insertar_departamentos(27, 'Estrategia y Planeación');
+    insertar_departamentos(28, 'Alianzas Estratégicas');
+    insertar_departamentos(29, 'Desarrollo de Negocios');
+    insertar_departamentos(30, 'Customer Success');
+    
+    COMMIT;
+END;
 
 select * from fide_usuarios_tb;
+
+
+
 
 

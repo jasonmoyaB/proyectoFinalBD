@@ -1,7 +1,7 @@
 package Controlador;
 
 import Modelo.Conexion;
-import Modelo.UsuarioDAO;
+import Modelo.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,14 +9,47 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/AgregarUsuarioServlet")
 public class AgregarUsuarioServlet extends HttpServlet {
 
+    // Método para obtener los usuarios desde la base de datos
+    private List<Usuario> obtenerUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+        Conexion conexion = new Conexion();
+        Connection conn = conexion.conectar();
+
+        String sql = "SELECT * FROM fide_usuarios_tb"; // Consulta para obtener todos los usuarios
+        try (PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId_usuario(rs.getInt("id_usuario"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setId_rol(rs.getInt("id_rol"));
+                usuario.setId_departamento(rs.getInt("id_departamento"));
+                usuarios.add(usuario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return usuarios;
+    }
+
+    // Método para manejar la solicitud POST (agregar un usuario)
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtener parámetros del formulario
         int idUsuario = Integer.parseInt(request.getParameter("id_usuario"));
@@ -46,13 +79,12 @@ public class AgregarUsuarioServlet extends HttpServlet {
                 // Ejecutar el procedimiento
                 cs.execute();
 
-
-                // Redirigir al formulario con mensaje de éxito
-                response.sendRedirect("addUsers.jsp?msg=Usuario agregado");
+                // Agregar el mensaje de éxito
+                request.setAttribute("msg", "Usuario agregado");
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                response.sendRedirect("addUsers.jsp?error=No se pudo agregar el usuario");
+                request.setAttribute("error", "No se pudo agregar el usuario");
             } finally {
                 try {
                     if (cs != null) {
@@ -66,11 +98,27 @@ public class AgregarUsuarioServlet extends HttpServlet {
                 }
             }
         } else {
-            response.sendRedirect("addUsers.jsp?error=No hay conexión con la base de datos");
+            request.setAttribute("error", "No hay conexión con la base de datos");
         }
+
+        // Obtener los usuarios de la base de datos y agregar al request
+        List<Usuario> usuarios = obtenerUsuarios();
+        request.setAttribute("usuarios", usuarios);
+
+        // Redirigir al JSP con los datos actualizados
+        request.getRequestDispatcher("addUsers.jsp").forward(request, response);
     }
 
-    
+    // Método para manejar la solicitud GET (mostrar usuarios)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Obtener los usuarios de la base de datos y agregar al request
+        List<Usuario> usuarios = obtenerUsuarios();
+        request.setAttribute("usuarios", usuarios);
+
+        // Redirigir al JSP
+        request.getRequestDispatcher("addUsers.jsp").forward(request, response);
     }
+}
+
 
 
