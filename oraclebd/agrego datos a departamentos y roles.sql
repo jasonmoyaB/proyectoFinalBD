@@ -83,9 +83,7 @@ begin
     
     insertar_usuarios(1, 'Jason Moya', 'jason.moyabre.es@gmail.com', 'jasonmoya12', 1, 1);
     insertar_usuarios(2, 'Jorge Pérez', 'jorge@gmail.com', 'jorge12', 2, 2);
-    insertar_usuarios(3, 'Maria López', 'maria.lopez@gmail.com', 'maria123', 3, 3);
-    insertar_usuarios(4, 'Carlos García', 'carlos.garcia@gmail.com', 'carlos123', 4, 4);
-    insertar_usuarios(5, 'Ana Rodríguez', 'ana.rodriguez@gmail.com', 'ana1234', 5, 5);
+    insertar_usuarios(3, 'Maria López', 'maria.lopez@gmail.com', 'maria123', 3, 3);  
     commit;
 end;
 
@@ -153,5 +151,8 @@ BEGIN
 END;
 
 select * from fide_usuarios_tb;
-delete fide_usuarios_tb
-where id_usuario between 1 and 20;
+
+
+
+
+

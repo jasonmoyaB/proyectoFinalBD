@@ -34,10 +34,10 @@
         <form action="AgregarUsuarioServlet" method="post">
             <table>
                 <tr>
-                    <th>ID Usuario</th>
+                    <th>ID Proveedor</th>
                     <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Contraseña</th>
+                    <th>Contacto</th>
+                    <th>Telefono</th>
                     <th>Rol (ID)</th>
                     <th>Departamento (ID)</th>
                     <th>Acciones</th>
