@@ -23,9 +23,8 @@ public class AgregarUsuarioServlet extends HttpServlet {
         Connection conn = conexion.conectar();
 
         String sql = "SELECT * FROM fide_usuarios_tb"; // Consulta para obtener todos los usuarios
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+        try (PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Usuario usuario = new Usuario();
@@ -120,5 +119,6 @@ public class AgregarUsuarioServlet extends HttpServlet {
         request.getRequestDispatcher("addUsers.jsp").forward(request, response);
     }
 }
+
 
 

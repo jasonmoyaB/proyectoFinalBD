@@ -152,3 +152,6 @@ BEGIN
     COMMIT;
 END;
 
+select * from fide_usuarios_tb;
+delete fide_usuarios_tb
+where id_usuario between 1 and 20;
