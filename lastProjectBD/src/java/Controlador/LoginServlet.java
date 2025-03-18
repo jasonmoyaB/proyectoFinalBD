@@ -14,8 +14,8 @@ public class LoginServlet extends HttpServlet {
     // Datos de usuario "quemados" para admin y user
     private static final String ADMIN_USERNAME = "admin";
     private static final String ADMIN_PASSWORD = "1234";
-    private static final String USER_USERNAME = "user";
-    private static final String USER_PASSWORD = "user123";
+    private static final String USER_USERNAME = "jorge";
+    private static final String USER_PASSWORD = "123";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("usuario");
