@@ -41,13 +41,7 @@
             </nav>
         </header>
 
-        <div class="container">
-            <nav class="sub-menu">
-                <a class="addCustomers" href="addCostumers.jsp">Agregar Clientes</a>
-                <a class="addCustomers" href="addSuppliers.jsp">Agregar Proveedores</a>
-                <a class="addCustomers" href="addUsers.jsp">Agregar Usuarios</a>
-            </nav>
-
+        <div class="container">           
             <h1>Bienvenido, <%= username %>!</h1>
             <h2>
                 <% if ("admin".equals(rol)) { %>
@@ -61,18 +55,20 @@
             <!-- Contenido exclusivo para administradores -->
 
             <div class="parent">
-                <div class="box addC">Agregar Clientes
+                <div class="box addC"><a class="addCustomers" href="addCostumers.jsp">Agregar Clientes</a>
                     <p class="text-box">Aquí puedes gestionar los clientes:<br> agregar, editar o eliminar.</p>
                 </div>
-                <div class="box addP">Agregar Proveedores
+                <div class="box addP"><a class="addCustomers" href="addSuppliers.jsp">Agregar Proveedores</a>
                     <p class="text-box">Aquí puedes gestionar los proveedores:<br> agregar nuevos proveedores <br> y mantener su información actualizada.</p>
+                    
                 </div>
-                <div class="box addU">Agregar Usuarios
+                <div class="box addU"> <a class="addCustomers" href="addUsers.jsp">Agregar Usuarios</a>
                     <p class="text-box">
                         Aquí puedes agregar nuevos usuarios, <br> 
                         asignarles roles y <br> 
                         mantener su información actualizada.
                     </p>
+                   
                 </div>
             </div>
 

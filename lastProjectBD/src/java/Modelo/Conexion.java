@@ -3,6 +3,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Conexion {
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe"; // Asegúrate de que estos valores sean correctos
@@ -24,5 +25,10 @@ public class Conexion {
         }
         return conn;
     }
+
+    public List<UsuarioDAO> obtenerUsuarios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 }
 

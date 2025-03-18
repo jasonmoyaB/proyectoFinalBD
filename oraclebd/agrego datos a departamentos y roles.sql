@@ -89,3 +89,23 @@ begin
     commit;
 end;
 
+set serverout on;
+declare --cursores estaticos(este se usa la mayoria de las veces)
+    -- Cursor
+    cursor usuarios is
+        select * from fide_usuarios_tb;
+        
+
+    v_usuario fide_usuarios_tb%rowtype;
+begin 
+   for v_usuario in usuarios
+    
+    loop
+        dbms_output.put_line('Nombre usuario:'||v_usuario.nombre);
+    end loop;
+end;
+
+
+select * from fide_usuarios_tb;
+
+
