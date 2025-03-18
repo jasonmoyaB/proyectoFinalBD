@@ -34,8 +34,7 @@ end;
 
 
     
-    commit;
-end;  
+
 create or replace procedure insertar_departamentos(
     p_id_departamento in number,
     p_nombre_departamento in varchar
@@ -65,6 +64,7 @@ begin
     
     commit;
 end;
+ALTER PROCEDURE insertar_roles COMPILE;
 
 create or replace procedure insertar_usuarios (
     p_id_usuario in number,
@@ -105,7 +105,29 @@ begin
     end loop;
 end;
 
+select * from fide_roles_tb;
 
-select * from fide_usuarios_tb;
 
+
+BEGIN
+    -- inserciones utilizando el procedimiento insertar_roles
+    insertar_roles(15, 'scrum master');
+    insertar_roles(16, 'coordinador');
+    insertar_roles(17, 'administrador de sistema');
+    insertar_roles(18, 'analista de datos');
+    insertar_roles(19, 'ingeniero de software');
+    insertar_roles(20, 'jefe de proyecto');
+    insertar_roles(21, 'programador junior');
+    insertar_roles(22, 'programador senior');
+    insertar_roles(23, 'arquitecto de software');
+    insertar_roles(24, 'consultor');
+    insertar_roles(25, 'diseñador de interfaz');
+    insertar_roles(26, 'ingeniero de calidad');
+    insertar_roles(27, 'administrador de infraestructura');
+    insertar_roles(28, 'gestor de proyectos');
+    insertar_roles(29, 'auditor de seguridad');
+    insertar_roles(30, 'analista de soporte técnico');
+    
+    COMMIT;
+END;
 
