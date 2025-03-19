@@ -4,8 +4,8 @@
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="styles/styleaddUsers.css"/>
-    <title>Agregar Usuarios</title>
+    <link rel="stylesheet" href="styles/styleaddCostumers.css"/>
+    <title>Agregar Clientes</title>
 </head>
 <body>
     <header>
@@ -19,7 +19,7 @@
     </header>
 
     <div class="container">
-        <h2>Agregar Usuario</h2>
+        <h2>Agregar Clientes</h2>
 
         <!-- Mostrar el mensaje de éxito si existe -->
         <c:if test="${not empty param.msg}">
@@ -31,7 +31,7 @@
             <div class="message error">${requestScope.error}</div>
         </c:if>
 
-        <form action="AgregarUsuarioServlet" method="post">
+        <form action="AgregarClientesServlet" method="post">
             <table>
                 <tr>
                     <th>ID Cliente</th>
@@ -45,15 +45,14 @@
                     <td><input type="number" name="id_cliente" required></td>
                     <td><input type="text" name="nombre" required></td>
                     <td><input type="email" name="correo" required></td>
-                    <td><input type="password" name="telefono" required></td>
-                    <td><input type="number" name="proyecto" required></td>
-                    
-                    <td><button type="submit">Agregar Usuario</button></td>
+                    <td><input type="tel" name="telefono" required></td>
+                    <td><input type="number" name="id_proyecto" required></td>
+                    <td><button type="submit">Agregar Cliente</button></td>
                 </tr>
             </table>
         </form>
 
-        <h2>Usuarios Registrados</h2>
+        <h2>Clientes Registrados</h2>
         <table>
             <tr>
                 <th>ID Cliente</th>
@@ -61,22 +60,21 @@
                 <th>Correo</th>
                 <th>Telefono</th>
                 <th>ID Proyecto (ID)</th>
-
             </tr>
 
-            <!-- Mostrar usuarios desde el Servlet -->
-            <c:forEach var="usuario" items="${usuarios}">
+            <!-- Mostrar clientes desde el Servlet -->
+            <c:forEach var="cliente" items="${clientes}">
                 <tr>
-                    <td>${usuario.id_usuario}</td>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.correo}</td>
-                    <td>******</td>
-                    <td>${usuario.id_rol}</td>
-                    <td>${usuario.id_departamento}</td>
-                    <td></td>
+                    <td>${cliente.id_cliente}</td>
+                    <td>${cliente.nombre}</td>  <!-- Corregido de nombre_cliente a nombre -->
+                    <td>${cliente.correo}</td>  <!-- Corregido de correo_cliente a correo -->
+                    <td>${cliente.telefono}</td>
+                    <td>${cliente.id_proyecto}</td>
                 </tr>
             </c:forEach>
         </table>
     </div>
 </body>
 </html>
+
+
