@@ -152,7 +152,57 @@ END;
 
 select * from fide_usuarios_tb;
 
+create or replace procedure insertar_clientes(
+p_id_cliente in number,
+p_NOMBRE_CLIENTE in varchar2,
+p_CORREO_CLIENTE in varchar2,
+p_TELEFONO in varchar2,
+p_ID_PROYECTO in number
+)is
+
+begin
+    insert into fide_clientes_tb(ID_CLIENTE,NOMBRE_CLIENTE,CORREO_CLIENTE,TELEFONO,ID_PROYECTO)
+            values(p_id_cliente,p_NOMBRE_CLIENTE,p_CORREO_CLIENTE,p_TELEFONO,p_ID_PROYECTO);
+            
+            commit;
+             EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+end;
+
+begin
+    insertar_clientes(1, 'Tech Solutions', 'techsolutions@example.com', '8888-1111', 1);
+    insertar_clientes(2, 'InnovaSoft', 'innovasoft@example.com', '8777-2222', 2);
+    insertar_clientes(3, 'GlobalTech', 'globaltech@example.com', '8666-3333', 3);
+    insertar_clientes(4, 'AlphaCorp', 'alphacorp@example.com', '8555-4444', 4);
+end;
 
 
 
+
+
+
+create or replace procedure insertar_proyectos(
+p_ID_PROYECTO in number,
+p_NOMBRE_PROYECTO in varchar2,
+p_DESCRIPCION in varchar2,
+p_FECHA_CREACION in date,
+p_ID_USUARIO in number
+)is
+begin
+    insert into fide_proyectos_tb(ID_PROYECTO,NOMBRE_PROYECTO,DESCRIPCION,FECHA_CREACION,ID_USUARIO)
+            values(p_ID_PROYECTO,p_NOMBRE_PROYECTO,p_DESCRIPCION,p_FECHA_CREACION,p_ID_USUARIO);  
+        commit;
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+end;
+
+begin
+    insertar_proyectos(1, 'Desarrollo API', 'Desarrollar API REST para clientes', TRUNC(SYSDATE), 1);
+    insertar_proyectos(2, 'Web E-Commerce', 'Crear tienda en línea con pasarela de pagos', TRUNC(SYSDATE), 2);
+    insertar_proyectos(3, 'Mantenimiento DB', 'Optimización y respaldo de base de datos', TRUNC(SYSDATE), 3);
+    insertar_proyectos(4, 'Chatbot Soporte', 'Desarrollar chatbot para atención al cliente', TRUNC(SYSDATE), 4);
+    
+end;
 
