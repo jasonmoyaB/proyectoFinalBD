@@ -205,4 +205,5 @@ begin
     insertar_proyectos(4, 'Chatbot Soporte', 'Desarrollar chatbot para atención al cliente', TRUNC(SYSDATE), 4);
     
 end;
-
+select * from fide_clientes_tb;
+desc fide_clientes_tb;
