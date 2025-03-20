@@ -21,10 +21,11 @@
                     <a class="logo" href="index.jsp">CODINGRAPH;</a>
                     <a class="nav-link" href=".jsp">Quienes somos</a>
                     <a class="nav-link" href="myTasks.jsp">Contacto</a>
-                    <a class="nav-link" href="login.jsp">Log-in</a>
+                    <a class="nav-link-login" href="login.jsp">Log-in</a>
                 </ul>
             </nav>
         </header>
+        
         <div class="portada">
             <h1>¿Por qué elegir <br> CODINGRAPH;?</h1>
             <div class="parrafoPortada">
@@ -74,11 +75,12 @@
                     <h2>Simplifica la planificación </h2>
                     <p>Aprovecha tu tiempo al máximo. Establece fechas <br>
                         de vencimiento, visualiza tu semana en vista de <br>
-                        calendario y programa tareas periódicas muy fácilmente.</p>
+                        calendario y programa tareas periódicas muy <br> fácilmente.</p>
                 </div>
                 <img src="img/fotoinfo3.jpg" alt="">
             </div>
         </div>
+        
 
         <footer>
             <div class="footer-content">
