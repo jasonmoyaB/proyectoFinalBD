@@ -233,7 +233,7 @@ END;
 
 
 
-
+select * from fide_proveedores_tb;
 
 
 

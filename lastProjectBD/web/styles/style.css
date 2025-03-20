@@ -17,13 +17,7 @@ header{
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.384);
     top: 0;
 }
-.logo-what{
-    height: 70px;
-    margin-left: 96%;
-    position: fixed;
-    margin-top: -50%;
-    cursor: pointer;
-}
+
 
 .logo{
     justify-content: center;
