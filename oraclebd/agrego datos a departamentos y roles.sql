@@ -206,3 +206,43 @@ begin
     
 end;
 
+desc fide_proveedores_tb;
+
+create or replace procedure insertar_proveedores(
+
+p_ID_PROVEEDOR in number,
+p_NOMBRE_PROVEEDOR in varchar2,
+p_CONTACTO in varchar2,
+p_TELEFONO varchar2
+)is
+
+begin
+insert into fide_proveedores_tb(ID_PROVEEDOR,NOMBRE_PROVEEDOR,CONTACTO,TELEFONO)
+        values(p_ID_PROVEEDOR,p_NOMBRE_PROVEEDOR,p_CONTACTO,p_TELEFONO);
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+
+end;
+
+BEGIN
+    insertar_proveedores(1, 'Proveeduria Global', 'Carlos Sánchez', '88448844');
+    insertar_proveedores(2, 'Soluciones Técnicas S.A.', 'Ana López', '99999955');
+    insertar_proveedores(3, 'Distribuciones ABC', 'Luis Pérez', '55564458');
+END;
+
+
+
+select * from fide_proveedores_tb;
+
+
+
+
+
+
+
+
+
+
+
+

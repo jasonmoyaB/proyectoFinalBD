@@ -11,9 +11,11 @@
     <header>
         <nav class="nav">
             <ul>
-                <a class="logo" href="">CODINGRAPH;</a>
+                <a class="logo" href="bienvenido.jsp">CODINGRAPH;</a>
+                <a class="nav-link" href="addSuppliers.jsp">Agregar Proveedores</a>
+                <a class="nav-link" href="addCostumers.jsp">Agregar Clientes</a>
                 <a class="nav-link" href="login.jsp">Log-out</a>
-                <a class="nav-link" href="bienvenido.jsp">Atras</a>
+                
             </ul>
         </nav>
     </header>
