@@ -19,8 +19,8 @@
             <nav class="nav">
                 <ul>
                     <a class="logo" href="index.jsp">CODINGRAPH;</a>
-                    <a class="nav-link" href=".jsp">Quienes somos</a>
-                    <a class="nav-link" href="myTasks.jsp">Contacto</a>
+                    <a class="nav-link" href="sobreNosotros.jsp">Quienes somos</a>
+                    <a class="nav-link" href="contacto.jsp">Contacto</a>
                     <a class="nav-link-login" href="login.jsp">Log-in</a>
                 </ul>
             </nav>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="footer-links">
                     <a href="index.jsp" class="footer-link">Inicio</a>
-                    <a href="quienesSomos.jsp" class="footer-link">Quiénes Somos</a>
+                    <a href="sobreNosotros.jsp" class="footer-link">Quiénes Somos</a>
                     <a href="#contacto" class="footer-link">Contacto</a>
                     <a href="#privacidad" class="footer-link">Política de Privacidad</a>
                 </div>
