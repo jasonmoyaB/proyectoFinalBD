@@ -22,15 +22,15 @@ public class AgregarClientesServlet extends HttpServlet {
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
 
-        String sql = "SELECT * FROM fide_clientes_tb"; // Consulta para obtener todos los clientes
+        String sql = "SELECT * FROM fide_clientes_tb"; //todos los clientes
         try (PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setId_cliente(rs.getInt("id_cliente"));
-                cliente.setNombre(rs.getString("nombre_cliente"));  // Se mantiene como nombre_cliente
-                cliente.setCorreo(rs.getString("correo_cliente"));  // Se mantiene como correo_cliente
+                cliente.setNombre(rs.getString("nombre_cliente"));  
+                cliente.setCorreo(rs.getString("correo_cliente")); 
                 cliente.setTelefono(rs.getString("telefono"));
                 cliente.setId_proyecto(rs.getInt("id_proyecto"));
                 clientes.add(cliente);
