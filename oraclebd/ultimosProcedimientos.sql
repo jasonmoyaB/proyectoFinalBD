@@ -128,3 +128,11 @@ EXCEPTION
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('No se encontró el cliente con el ID proporcionado.');
 END consultar_cliente;
+
+
+
+
+
+
+
+
