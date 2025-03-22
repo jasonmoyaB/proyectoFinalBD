@@ -12,7 +12,7 @@ join fide_departamento_tb d on u.id_departamento = d.id_departamento;
 
 
 
-desc cliente_completo_CRUD;
+desc fide_clientes_tb;
 select * from usuario_completo_CRUD;
 select * from fide_usuarios_tb;
 select * from fide_proyectos_tb;
