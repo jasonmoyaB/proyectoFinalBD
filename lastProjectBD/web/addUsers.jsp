@@ -15,7 +15,6 @@
                 <a class="nav-link" href="addSuppliers.jsp">Agregar Proveedores</a>
                 <a class="nav-link" href="addCostumers.jsp">Agregar Clientes</a>
                 <a class="nav-link" href="login.jsp">Log-out</a>
-                
             </ul>
         </nav>
     </header>
@@ -65,6 +64,7 @@
                 <th>Contraseña</th>
                 <th>Rol</th>
                 <th>Departamento</th>
+                <th>Acciones</th> <!-- Columna para acciones (editar, eliminar) -->
             </tr>
 
             <!-- Mostrar usuarios desde el Servlet -->
@@ -76,13 +76,24 @@
                     <td>******</td>
                     <td>${usuario.nombreRol}</td>  <!-- Cambio aquí -->
                     <td>${usuario.nombreDepartamento}</td> <!-- Cambio aquí -->
-                    <td></td>
+                    <td>
+                        <!-- Botón de editar -->
+                        <a href="EditarUsuarioServlet?id_usuario=${usuario.id_usuario}">
+                            <button>Editar</button>
+                        </a>
+                        
+                        <!-- Botón de eliminar -->
+                        <a href="EliminarUsuarioServlet?id_usuario=${usuario.id_usuario}" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                            <button>Eliminar</button>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
     </div>
 </body>
 </html>
+
 
 
 
