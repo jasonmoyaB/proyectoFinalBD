@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet("/AgregarUsuarioServlet")
 public class AgregarUsuarioServlet extends HttpServlet {
 
-    // Método para obtener los usuarios desde la base de datos
+    
     // Método para obtener los usuarios desde la base de datos
     private List<Usuario> obtenerUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();

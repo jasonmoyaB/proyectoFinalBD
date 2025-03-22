@@ -9,7 +9,10 @@ select
 from fide_usuarios_tb u
 join fide_roles_tb r on u.id_rol=r.id_rol
 join fide_departamento_tb d on u.id_departamento = d.id_departamento;
-    
+
+
+
+desc cliente_completo_CRUD;
 select * from usuario_completo_CRUD;
 select * from fide_usuarios_tb;
 select * from fide_proyectos_tb;
