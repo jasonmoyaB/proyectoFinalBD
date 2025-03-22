@@ -22,17 +22,17 @@ public class AgregarClientesServlet extends HttpServlet {
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
 
-        String sql = "SELECT * FROM fide_clientes_tb"; //todos los clientes
-        try (PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        // Consulta usando la vista (sin id_proyecto)
+        String sql = "SELECT id_cliente, nombre_cliente, correo_cliente, telefono, nombre_proyecto FROM cliente_completo_CRUD"; // Actualiza la consulta
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Cliente cliente = new Cliente();
                 cliente.setId_cliente(rs.getInt("id_cliente"));
-                cliente.setNombre(rs.getString("nombre_cliente"));  
-                cliente.setCorreo(rs.getString("correo_cliente")); 
+                cliente.setNombre(rs.getString("nombre_cliente"));
+                cliente.setCorreo(rs.getString("correo_cliente"));
                 cliente.setTelefono(rs.getString("telefono"));
-                cliente.setId_proyecto(rs.getInt("id_proyecto"));
+                cliente.setNombre_proyecto(rs.getString("nombre_proyecto"));  // Aquí se asigna el nombre del proyecto
                 clientes.add(cliente);
             }
         } catch (SQLException e) {
@@ -131,5 +131,3 @@ public class AgregarClientesServlet extends HttpServlet {
         request.getRequestDispatcher("addCostumers.jsp").forward(request, response);
     }
 }
-
-

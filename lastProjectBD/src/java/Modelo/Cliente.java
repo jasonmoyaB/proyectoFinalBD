@@ -1,4 +1,3 @@
-
 package Modelo;
 
 public class Cliente {
@@ -6,7 +5,7 @@ public class Cliente {
     private String nombre;
     private String correo;
     private String telefono;
-    private Integer id_proyecto;
+    private String nombre_proyecto;  // Mantener solo el nombre del proyecto
 
     // Getters y setters
     public Integer getId_cliente() {
@@ -41,14 +40,15 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public Integer getId_proyecto() {
-        return id_proyecto;
+    public String getNombre_proyecto() {
+        return nombre_proyecto;
     }
 
-    public void setId_proyecto(Integer id_proyecto) {
-        this.id_proyecto = id_proyecto;
+    public void setNombre_proyecto(String nombre_proyecto) {
+        this.nombre_proyecto = nombre_proyecto;
     }
 }
+
 
 
 

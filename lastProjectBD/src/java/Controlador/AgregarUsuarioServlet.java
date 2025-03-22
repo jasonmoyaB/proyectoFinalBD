@@ -17,22 +17,23 @@ import java.util.List;
 public class AgregarUsuarioServlet extends HttpServlet {
 
     // Método para obtener los usuarios desde la base de datos
+    // Método para obtener los usuarios desde la base de datos
     private List<Usuario> obtenerUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
 
-        String sql = "SELECT * FROM fide_usuarios_tb"; // Consulta para obtener todos los usuarios
-        try (PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        String sql = "SELECT * FROM usuario_completo_CRUD"; // Usando la vista en lugar de la tabla
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Usuario usuario = new Usuario();
                 usuario.setId_usuario(rs.getInt("id_usuario"));
-                usuario.setNombre(rs.getString("nombre"));
+                usuario.setNombre(rs.getString("nombre"));  
                 usuario.setCorreo(rs.getString("correo"));
-                usuario.setId_rol(rs.getInt("id_rol"));
-                usuario.setId_departamento(rs.getInt("id_departamento"));
+                usuario.setContraseña(rs.getString("contraseña"));
+                usuario.setNombreRol(rs.getString("nombre_rol"));  
+                usuario.setNombreDepartamento(rs.getString("nombre_departamento"));  
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {
@@ -119,6 +120,3 @@ public class AgregarUsuarioServlet extends HttpServlet {
         request.getRequestDispatcher("addUsers.jsp").forward(request, response);
     }
 }
-
-
-
