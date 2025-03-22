@@ -9,15 +9,15 @@
     </head>
     <body>
         <header>
-            <nav class="nav">
-                <ul>
-                    <a class="logo" href="bienvenido.jsp">CODINGRAPH;</a>
-                    <a class="nav-link" href="addSuppliers.jsp">Agregar Proveedores</a>
-                    <a class="nav-link" href="addUsers.jsp">Agregar Usuarios</a>
-                    <a class="nav-link" href="login.jsp">Log-out</a>
-                </ul>
-            </nav>
-        </header>
+        <nav class="nav">
+            <ul>
+                <a class="logo" href="bienvenido.jsp">CODINGRAPH;</a>
+                <a class="nav-link" href="addSuppliers.jsp">Agregar Proveedores</a>
+                <a class="nav-link" href="addUsers.jsp">Agregar Usuarios</a>
+                <a class="nav-link" href="login.jsp">Log-out</a>
+            </ul>
+        </nav>
+    </header>
 
         <div class="container">
             <h2>Agregar Clientes</h2>
