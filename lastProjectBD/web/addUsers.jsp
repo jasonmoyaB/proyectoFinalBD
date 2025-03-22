@@ -74,8 +74,8 @@
                     <td>${usuario.nombre}</td>
                     <td>${usuario.correo}</td>
                     <td>******</td>
-                    <td>${usuario.id_rol}</td>
-                    <td>${usuario.id_departamento}</td>
+                    <td>${usuario.nombreRol}</td>  <!-- Cambio aquí -->
+                    <td>${usuario.nombreDepartamento}</td> <!-- Cambio aquí -->
                     <td></td>
                 </tr>
             </c:forEach>
@@ -83,5 +83,6 @@
     </div>
 </body>
 </html>
+
 
 

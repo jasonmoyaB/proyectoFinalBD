@@ -1,12 +1,12 @@
-
 package Modelo;
 
 public class Usuario {
     private int id_usuario;
     private String nombre;
     private String correo;
-    private int id_rol;
-    private int id_departamento;
+    private String contraseña; // Asegúrate de que esta variable exista
+    private String nombreRol;
+    private String nombreDepartamento;
 
     // Getters y setters
     public int getId_usuario() {
@@ -33,20 +33,30 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getId_rol() {
-        return id_rol;
+    public String getContraseña() { // Getter de contraseña
+        return contraseña;
     }
 
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setContraseña(String contraseña) { // Setter de contraseña
+        this.contraseña = contraseña;
     }
 
-    public int getId_departamento() {
-        return id_departamento;
+    public String getNombreRol() {
+        return nombreRol;
     }
 
-    public void setId_departamento(int id_departamento) {
-        this.id_departamento = id_departamento;
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
+    }
+
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
     }
 }
+
+
 
