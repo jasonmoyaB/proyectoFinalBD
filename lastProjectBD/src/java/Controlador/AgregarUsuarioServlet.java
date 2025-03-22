@@ -29,11 +29,11 @@ public class AgregarUsuarioServlet extends HttpServlet {
             while (rs.next()) {
                 Usuario usuario = new Usuario();
                 usuario.setId_usuario(rs.getInt("id_usuario"));
-                usuario.setNombre(rs.getString("nombre"));  // Ya no necesitas id_usuario
+                usuario.setNombre(rs.getString("nombre"));  
                 usuario.setCorreo(rs.getString("correo"));
                 usuario.setContraseña(rs.getString("contraseña"));
-                usuario.setNombreRol(rs.getString("nombre_rol"));  // Usando el nombre del rol en lugar del ID
-                usuario.setNombreDepartamento(rs.getString("nombre_departamento"));  // Usando el nombre del departamento
+                usuario.setNombreRol(rs.getString("nombre_rol"));  
+                usuario.setNombreDepartamento(rs.getString("nombre_departamento"));  
                 usuarios.add(usuario);
             }
         } catch (SQLException e) {
