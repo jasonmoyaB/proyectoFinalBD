@@ -101,3 +101,179 @@ button:hover {
     background-color: #0056b3;
 
 }
+.container {
+    background-color: #007bff;
+    width: 100%;
+    min-width: 100vw;
+    height: 500px;
+}
+.contactanos{
+    align-items: center;
+    padding: 4%;
+    font-size: 60px;
+    color: #fff;
+    margin: 0;
+}
+
+.p_contactanos{
+    font-size: 18px;
+    color: #fff;
+}
+
+/* From Uiverse.io by absoluteSTrange */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card {
+    width: 250px; /* Ajustado para mejor visualización */
+    height: 200px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: -5%;
+    cursor: pointer;
+}
+.card:hover {
+    transform: scale(1.1); /* Hace zoom del 10% */
+}
+.shadow {
+    box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+        0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+
+
+/*footer*/
+footer {
+    margin-top: 5%;
+    background-color: #e0e0e06c;
+    color: rgb(22, 118, 207);
+    padding: 40px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(22, 118, 207);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-link {
+    color: rgb(22, 118, 207);
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #7bc6ff;
+}
+
+.footer-socials a {
+    color: rgb(22, 118, 207);
+    font-size: 24px;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #7bc6ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #7a7a7a;
+}
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #128C7E;
+    transition-duration: .3s;
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: .3s;
+}
+
+.socialSvg {
+    width: 17px;
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
