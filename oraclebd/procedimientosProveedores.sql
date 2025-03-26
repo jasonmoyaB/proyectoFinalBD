@@ -20,3 +20,10 @@ BEGIN
     DELETE FROM fide_proveedores_tb WHERE id_proveedor = p_id_proveedor;
     COMMIT;
 END eliminar_proveedor;
+
+
+
+
+
+
+

@@ -18,8 +18,7 @@
             <nav class="nav">
                 <a class="logo" href="index.jsp">CODINGRAPH;</a>
                 <ul class="nav-links">
-                    <li><a class="nav-link" href="sobreNosotros.jsp">Quienes somos</a></li>
-                    <li><a class="nav-link" href="myTasks.jsp">Mis Tareas</a></li>
+                    <li><a class="nav-link" href="contacto.jsp">Contacto</a></li>
                     <li><a class="nav-link-login" href="login.jsp">Log-in</a></li>
                 </ul>
             </nav>
