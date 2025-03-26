@@ -8,6 +8,6 @@ package Controlador;
  *
  * @author jason
  */
-public class EditarSupplierServlet {
+public class EditarProveedorServlet {
     
 }

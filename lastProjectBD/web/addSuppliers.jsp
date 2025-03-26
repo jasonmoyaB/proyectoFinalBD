@@ -58,6 +58,7 @@
                 <th>Nombre</th>
                 <th>Contacto</th>
                 <th>Teléfono</th>
+                <th>Acciones</th>
             </tr>
 
             <!-- Mostrar proveedores desde el Servlet -->
@@ -67,11 +68,20 @@
                     <td>${proveedor.nombre}</td>
                     <td>${proveedor.contacto}</td>
                     <td>${proveedor.telefono}</td>
+                    <td>
+                        <!-- Botón de editar -->
+                        <a href="EditarProveedorServlet?id_proveedor=${proveedor.id_proveedor}">
+                            <button>Editar</button>
+                        </a>
+                        <!-- Botón de eliminar -->
+                        <a href="EliminarProveedorServlet?id_proveedor=${proveedor.id_proveedor}" onclick="return confirm('¿Estás seguro de eliminar este proveedor?')">
+                            <button>Eliminar</button>
+                        </a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
     </div>
 </body>
-
 </html>
 
