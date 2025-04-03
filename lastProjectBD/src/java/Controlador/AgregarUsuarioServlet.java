@@ -68,7 +68,7 @@ public class AgregarUsuarioServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamar al procedimiento almacenado
-                String sql = "{call INSERTAR_USUARIOS(?, ?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.INSERTAR_USUARIOS(?, ?, ?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idUsuario);
                 cs.setString(2, nombre);
