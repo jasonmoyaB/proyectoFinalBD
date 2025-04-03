@@ -1,3 +1,7 @@
+
+--================================================================
+--                  asignacion Recursos
+--================================================================
 create or replace trigger asignacion_recurso_id_trg
 before insert on fide_asignacion_recursos_tb
 for each row
@@ -29,6 +33,9 @@ end if;
     :new.Last_update_by:=user;
 end;
 
+--================================================================
+--                      calendario
+--================================================================
 create or replace trigger calendario_id_trg
 before insert on fide_calendario_tb
 for each row
@@ -36,3 +43,64 @@ for each row
 begin 
 :new.id_calendario:=calendario_seq.nextval;
 end;
+--accion
+create or replace trigger accion_calendario_trg
+before insert on fide_calendario_tb
+for each row
+begin 
+if inserting then
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:= 'Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_calendario_trg
+before insert or update on fide_calendario_tb
+for each row
+begin 
+if inserting then 
+    :new.creation_date:=sysdate;
+    :new.created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+end;
+--================================================================
+--                      CATEGORIAS
+--================================================================
+create or replace trigger categorias_id_trg
+before insert on fide_categorias_tb
+for each row
+
+begin 
+:new.id_categoria:=categorias_seq.nextval;
+end;
+--accion
+create or replace trigger accion_categorias_trg
+before insert on fide_categorias_tb
+for each row
+begin 
+if inserting then
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:= 'Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_categorias_trg
+before insert or update on fide_categorias_tb
+for each row
+begin 
+if inserting then 
+    :new.creation_date:=sysdate;
+    :new.created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+end;
+--================================================================
+--                      CLIENTES
+--================================================================
