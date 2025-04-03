@@ -77,7 +77,7 @@ public class EditarUsuarioServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamamos al procedimiento almacenado para actualizar el usuario
-                String sql = "{call actualizar_usuario(?, ?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.actualizar_usuario(?, ?, ?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idUsuario);
                 cs.setString(2, nombre);

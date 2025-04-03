@@ -77,7 +77,7 @@ public class EditarProveedorServlet extends HttpServlet {
         // Validar la conexión
         try (Connection conn = conexion.conectar()) {
             if (conn != null) {
-                try (CallableStatement cs = conn.prepareCall("{call actualizar_proveedor(?, ?, ?, ?)}")) {
+                try (CallableStatement cs = conn.prepareCall("{call proyectomain_pck.actualizar_proveedor(?, ?, ?, ?)}")) {
                     cs.setInt(1, idProveedor);
                     cs.setString(2, nombre);
                     cs.setString(3, contacto);
