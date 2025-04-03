@@ -4,7 +4,7 @@ public class Usuario {
     private int id_usuario;
     private String nombre;
     private String correo;
-    private String contraseña; // Asegúrate de que esta variable exista
+    private String contraseña; 
     private String nombreRol;
     private String nombreDepartamento;
 

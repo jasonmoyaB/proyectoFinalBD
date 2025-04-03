@@ -27,7 +27,7 @@ public class EliminarProveedorServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamamos al procedimiento almacenado para eliminar el proveedor
-                String sql = "{call eliminar_proveedor(?)}";  // Asegúrate de que el procedimiento almacenado esté disponible
+                String sql = "{call proyectomain_pck.eliminar_proveedor(?)}";  // Asegúrate de que el procedimiento almacenado esté disponible
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idProveedor);
                 cs.execute();

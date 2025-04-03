@@ -27,7 +27,7 @@ public class EliminarUsuarioServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamamos al procedimiento almacenado para eliminar el usuario
-                String sql = "{call eliminar_usuario(?)}";
+                String sql = "{call proyectomain_pck.eliminar_usuario(?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idUsuario);
                 cs.execute();

@@ -75,7 +75,7 @@ public class EditarClienteServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamamos al procedimiento almacenado para actualizar el cliente
-                String sql = "{call actualizar_cliente(?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.actualizar_cliente(?, ?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idCliente);
                 cs.setString(2, nombre);

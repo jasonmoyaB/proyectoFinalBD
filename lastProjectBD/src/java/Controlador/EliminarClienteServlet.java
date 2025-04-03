@@ -27,7 +27,7 @@ public class EliminarClienteServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamamos al procedimiento almacenado para eliminar el cliente
-                String sql = "{call eliminar_cliente(?)}";
+                String sql = "{call proyectomain_pck.eliminar_cliente(?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idCliente);  // Pasamos el idCliente como parámetro
                 cs.execute();  // Ejecutamos el procedimiento almacenado

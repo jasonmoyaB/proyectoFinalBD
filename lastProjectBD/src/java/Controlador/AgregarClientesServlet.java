@@ -90,7 +90,7 @@ public class AgregarClientesServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamar al procedimiento almacenado
-                String sql = "{call insertar_clientes(?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.insertar_clientes(?, ?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idCliente != null ? idCliente : 0);
                 cs.setString(2, nombre);

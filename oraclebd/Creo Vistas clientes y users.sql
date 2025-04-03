@@ -1,3 +1,5 @@
+
+
 create or replace view usuario_completo_CRUD as
 select
     u.id_usuario,

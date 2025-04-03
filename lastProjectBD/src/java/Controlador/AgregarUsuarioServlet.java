@@ -23,7 +23,7 @@ public class AgregarUsuarioServlet extends HttpServlet {
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
 
-        String sql = "SELECT * FROM usuario_completo_CRUD"; // Usando la vista en lugar de la tabla
+        String sql = "SELECT * FROM usuario_completo_CRUD_V"; // Usando la vista en lugar de la tabla
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
@@ -68,7 +68,7 @@ public class AgregarUsuarioServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamar al procedimiento almacenado
-                String sql = "{call INSERTAR_USUARIOS(?, ?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.INSERTAR_USUARIOS(?, ?, ?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
                 cs.setInt(1, idUsuario);
                 cs.setString(2, nombre);
