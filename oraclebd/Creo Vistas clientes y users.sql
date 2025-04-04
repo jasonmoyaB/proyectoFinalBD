@@ -18,15 +18,17 @@ select * from fide_usuarios_tb;
 select * from fide_proyectos_tb;
 select * from fide_clientes_tb;
 select * from cliente_completo_CRUD;
-
+drop view cliente_completo_CRUD;
 create or replace view cliente_completo_CRUD as 
 select
+    c.id_cliente,
     c.nombre_cliente,
     c.correo_cliente,
     c.telefono,
     p.nombre_proyecto
 from fide_clientes_tb c
 join fide_proyectos_tb p on c.id_proyecto = p.id_proyecto;
+
 
 
 
