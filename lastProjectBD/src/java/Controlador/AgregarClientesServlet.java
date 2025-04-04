@@ -23,12 +23,11 @@ public class AgregarClientesServlet extends HttpServlet {
         Connection conn = conexion.conectar();
 
         // Consulta usando la vista (sin id_proyecto)
-        String sql = "SELECT id_cliente, nombre_cliente, correo_cliente, telefono, nombre_proyecto FROM cliente_completo_CRUD"; // Actualiza la consulta
+        String sql = "SELECT nombre_cliente, correo_cliente, telefono, nombre_proyecto FROM cliente_completo_CRUD"; // Actualiza la consulta
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Cliente cliente = new Cliente();
-                cliente.setId_cliente(rs.getInt("id_cliente"));
                 cliente.setNombre(rs.getString("nombre_cliente"));
                 cliente.setCorreo(rs.getString("correo_cliente"));
                 cliente.setTelefono(rs.getString("telefono"));
@@ -90,13 +89,12 @@ public class AgregarClientesServlet extends HttpServlet {
             CallableStatement cs = null;
             try {
                 // Llamar al procedimiento almacenado
-                String sql = "{call proyectomain_pck.insertar_clientes(?, ?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.insertar_clientes(?, ?, ?, ?)}";
                 cs = conn.prepareCall(sql);
-                cs.setInt(1, idCliente != null ? idCliente : 0);
-                cs.setString(2, nombre);
-                cs.setString(3, correo);
-                cs.setString(4, telefono);
-                cs.setInt(5, idProyecto != null ? idProyecto : 0);
+                cs.setString(1, nombre);
+                cs.setString(2, correo);
+                cs.setString(3, telefono);
+                cs.setInt(4, idProyecto != null ? idProyecto : 0);
 
                 // Ejecutar el procedimiento
                 cs.execute();

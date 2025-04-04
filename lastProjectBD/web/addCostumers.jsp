@@ -43,7 +43,7 @@
                         <th>Acciones</th>
                     </tr>
                     <tr>
-                        <td><input type="number" name="id_cliente" required></td>
+                        <td>Auto-generado</td>
                         <td><input type="text" name="nombre" required></td>
                         <td><input type="email" name="correo" required></td>
                         <td><input type="tel" name="telefono" required></td>
