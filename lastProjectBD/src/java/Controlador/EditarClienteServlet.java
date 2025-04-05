@@ -45,6 +45,7 @@ public class EditarClienteServlet extends HttpServlet {
                 cliente.setNombre(rs.getString("NOMBRE_CLIENTE"));
                 cliente.setCorreo(rs.getString("CORREO_CLIENTE"));
                 cliente.setTelefono(rs.getString("TELEFONO"));
+                cliente.setNombre_proyecto(rs.getString("ID_PROYECTO")); // Asignamos el ID del proyecto
 
                 // Establecer el cliente como atributo de la solicitud
                 request.setAttribute("cliente", cliente);
@@ -68,6 +69,9 @@ public class EditarClienteServlet extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String nombreProyecto = request.getParameter("nombre_proyecto");
 
+        // Obtener el id_proyecto basado en el nombre del proyecto
+        int idProyecto = obtenerIdProyecto(nombreProyecto);
+
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
 
@@ -81,7 +85,7 @@ public class EditarClienteServlet extends HttpServlet {
                 cs.setString(2, nombre);
                 cs.setString(3, correo);
                 cs.setString(4, telefono);
-                cs.setString(5, nombreProyecto);
+                cs.setInt(5, idProyecto);  // Pasamos el id_proyecto en lugar del nombre
                 cs.execute();
 
                 request.setAttribute("msg", "Cliente actualizado correctamente.");
@@ -110,7 +114,24 @@ public class EditarClienteServlet extends HttpServlet {
         request.getRequestDispatcher("addCostumers.jsp").forward(request, response);
     }
 
-// Método auxiliar para obtener los clientes desde la base de datos
+    // Método auxiliar para obtener el id del proyecto
+    private int obtenerIdProyecto(String nombreProyecto) {
+        int idProyecto = -1; // Valor por defecto si no se encuentra el proyecto
+        String sql = "SELECT ID_PROYECTO FROM fide_proyectos_tb WHERE NOMBRE_PROYECTO = ?";
+        try (Connection conn = new Conexion().conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, nombreProyecto);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                idProyecto = rs.getInt("ID_PROYECTO");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return idProyecto;
+    }
+
+    // Método auxiliar para obtener los clientes desde la base de datos
     private List<Cliente> obtenerClientes() {
         List<Cliente> clientes = new ArrayList<>();
         Conexion conexion = new Conexion();
@@ -119,7 +140,7 @@ public class EditarClienteServlet extends HttpServlet {
         ResultSet rs = null;
 
         // Usamos la vista cliente_completo_CRUD
-        String sql = "SELECT ID_CLIENTE, NOMBRE_CLIENTE, CORREO_CLIENTE, TELEFONO, NOMBRE_PROYECTO FROM cliente_completo_CRUD";  //para asegurar mis clumnas
+        String sql = "SELECT ID_CLIENTE, NOMBRE_CLIENTE, CORREO_CLIENTE, TELEFONO, NOMBRE_PROYECTO FROM cliente_completo_CRUD";  //para asegurar mis columnas
 
         try {
             conn = conexion.conectar();

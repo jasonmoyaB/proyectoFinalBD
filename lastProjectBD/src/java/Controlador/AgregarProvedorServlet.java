@@ -71,12 +71,12 @@ public class AgregarProvedorServlet extends HttpServlet {
         if (conn != null) {
             CallableStatement cs = null;
             try {
-                String sql = "{call proyectomain_pck.insertar_proveedores(?, ?, ?, ?)}";
+                String sql = "{call proyectomain_pck.insertar_proveedores(?, ?, ?)}";
                 cs = conn.prepareCall(sql);
-                cs.setInt(1, idProveedor != null ? idProveedor : 0);
-                cs.setString(2, nombre);
-                cs.setString(3, contacto);
-                cs.setString(4, telefono);
+                
+                cs.setString(1, nombre);
+                cs.setString(2, contacto);
+                cs.setString(3, telefono);
 
                 cs.execute();
                 request.setAttribute("msg", "Proveedor agregado");

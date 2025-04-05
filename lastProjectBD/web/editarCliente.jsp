@@ -31,7 +31,7 @@
             </c:if>
 
             <!-- Formulario de edición -->
-            <<form action="EditarClienteServlet" method="post">
+            <form action="EditarClienteServlet" method="post">
                 <input type="hidden" name="id_cliente" value="${cliente.id_cliente}" />
 
                 <label for="nombre">Nombre:</label>
@@ -44,7 +44,13 @@
                 <input type="text" name="telefono" value="${cliente.telefono}" required />
 
                 <label for="nombre_proyecto">Proyecto:</label>
-                <input type="text" name="nombre_proyecto" value="${cliente.nombre_proyecto}" required />
+                <select name="nombre_proyecto" required>
+                    <option value="">Seleccione un proyecto</option>
+                    <option value="Desarrollo API" ${cliente.nombre_proyecto == 'Desarrollo API' ? 'selected' : ''}>Desarrollo API</option>
+                    <option value="Web E-Commerce" ${cliente.nombre_proyecto == 'Web E-Commerce' ? 'selected' : ''}>Web E-Commerce</option>
+                    <option value="Mantenimiento DB" ${cliente.nombre_proyecto == 'Mantenimiento DB' ? 'selected' : ''}>Mantenimiento DB</option>
+                    <option value="Chatbot Soporte" ${cliente.nombre_proyecto == 'Chatbot Soporte' ? 'selected' : ''}>Chatbot Soporte</option>
+                </select>
 
                 <button type="submit">Actualizar Cliente</button>
             </form>
