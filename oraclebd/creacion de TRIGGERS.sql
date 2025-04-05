@@ -141,8 +141,7 @@ select * from fide_clientes_tb;
 update fide_clientes_tb
 set nombre_cliente='Tech Solutions'
 where id_cliente=1;
-delete from fide_clientes_tb
-where id_cliente between 3 and 5;
+
 
 --================================================================
 --                      COMENTARIOS
@@ -354,3 +353,181 @@ end if;
     :new.Last_update_by:=user;
 
 end;
+update fide_proveedores_tb
+set nombre_proveedor='Keneth Pol'
+where id_proveedor=6;
+--================================================================
+--                       RECURSOS
+--================================================================
+create or replace trigger recursos_id_trg
+before insert on fide_recursos_tb
+for each row
+begin 
+:new.id_recurso:=recursos_seq.nextval;
+end;
+--accion
+create or replace trigger accion_recursos_trg
+before insert or update on fide_recursos_tb
+for each row
+begin
+if inserting then 
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:='Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_recursos_trg
+before insert or update on fide_recursos_tb
+for each row
+begin 
+if inserting then 
+    :new.Creation_date:=sysdate;
+    :new.Created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+
+end;
+
+--================================================================
+--                       ROLES
+--================================================================
+create or replace trigger roles_id_trg
+before insert on fide_roles_tb
+for each row
+begin 
+:new.id_rol:=roles_seq.nextval;
+end;
+--accion
+create or replace trigger accion_roles_trg
+before insert or update on fide_roles_tb
+for each row
+begin
+if inserting then 
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:='Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_roles_trg
+before insert or update on fide_roles_tb
+for each row
+begin 
+if inserting then 
+    :new.Creation_date:=sysdate;
+    :new.Created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+
+end;
+--================================================================
+--                       TAREAS
+--================================================================
+create or replace trigger tareas_id_trg
+before insert on fide_tareas_tb
+for each row
+begin 
+:new.id_tarea:=tareas_seq.nextval;
+end;
+--accion
+create or replace trigger accion_tareas_trg
+before insert or update on fide_tareas_tb
+for each row
+begin
+if inserting then 
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:='Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger accion_tareas_trg
+before insert or update on fide_tareas_tb
+for each row
+begin 
+if inserting then 
+    :new.Creation_date:=sysdate;
+    :new.Created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+
+end;
+--================================================================
+--                       TIEMPO
+--================================================================
+create or replace trigger tiempo_id_trg
+before insert on fide_tiempo_tb
+for each row
+begin 
+:new.id_tiempo:=tiempo_seq.nextval;
+end;
+--accion
+create or replace trigger accion_tiempo_trg
+before insert or update on fide_tiempo_tb
+for each row
+begin
+if inserting then 
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:='Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_tiempo_trg
+before insert or update on fide_tiempo_tb
+for each row
+begin 
+if inserting then 
+    :new.Creation_date:=sysdate;
+    :new.Created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+
+end;
+
+--================================================================
+--                       USUARIOS
+--================================================================
+create or replace trigger usuarios_id_trg
+before insert on fide_usuarios_tb
+for each row
+begin 
+:new.id_usuario:=usuarios_seq.nextval;
+end;
+--accion
+create or replace trigger accion_usuario_trg
+before insert or update on fide_usuarios_tb
+for each row
+begin
+if inserting then 
+    :new.accion:='Insertado';
+elsif updating then
+    :new.accion:='Actualizado';
+end if;
+end;
+--Los campos Creation_date, Last_update_date, Created_by y Last_update_by deben de 
+--generarse de forma automática mediante Triggers. 
+create or replace trigger insert_usuarios_trg
+before insert or update on fide_usuarios_tb
+for each row
+begin 
+if inserting then 
+    :new.Creation_date:=sysdate;
+    :new.Created_by:=user;
+end if;
+    :new.Last_update_date:=sysdate;
+    :new.Last_update_by:=user;
+
+end;
+update fide_usuarios_tb
+set nombre='Sabado'
+where id_usuario=5;
