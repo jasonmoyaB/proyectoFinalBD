@@ -7,4 +7,4 @@ SELECT
 FROM 
     fide_proveedores_tb;
 
-select * from vista_proveedores_V;
+
