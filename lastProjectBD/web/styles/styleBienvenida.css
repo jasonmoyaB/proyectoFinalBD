@@ -1,13 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 22 feb. 2025, 16:09:43
-    Author     : jason
-*/
 
-/* General body styles */
 body {
     background-color: #ffffff;
     background-attachment: fixed;
@@ -15,6 +6,17 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animación para que los elementos se desvanezcan al cargar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Header styles */
@@ -26,6 +28,18 @@ header {
     position: fixed;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.384);
     top: 0;
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .logo {
@@ -39,6 +53,7 @@ header {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     height: 100px;
+    transition: color 0.3s;
 }
 
 .logo:hover {
@@ -69,6 +84,7 @@ header {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px;
+    animation: slideInLeft 1s ease-out;
 }
 
 h1 {
@@ -84,6 +100,7 @@ form {
     margin-top: 20px;
     display: inline-block;
     width: 50%;
+    transition: box-shadow 0.3s ease;
 }
 
 form label {
@@ -111,10 +128,12 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 form button:hover {
     background-color: rgb(83, 110, 201);
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -124,6 +143,12 @@ footer {
     color: rgb(22, 118, 207);
     padding: 40px 0;
     font-family: 'Roboto', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+footer.visible {
+    opacity: 1;
 }
 
 .footer-content {
@@ -177,10 +202,8 @@ footer {
     color: #7a7a7a;
 }
 
-
-
-/*PARA ADMINS*/
-/*AGREGAR CLIENTES*/
+/* PARA ADMINS */
+/* AGREGAR CLIENTES */
 /* Estilos para el submenú */
 .sub-menu {
     background-color: #e0e0e06c;
@@ -188,8 +211,7 @@ footer {
     padding: 0;
     display: flex;
     align-items: center;
-    justify-content: center; /* Alinea los elementos a la izquierda */
-    
+    justify-content: center;
 }
 
 .addCustomers {
@@ -200,22 +222,20 @@ footer {
     text-decoration: none;
     border-radius: 5px;
     margin-left: 5%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-.addCustomers:hover{
+
+.addCustomers:hover {
     color: grey;
     transform: scale(1.1);
     background-color: rgba(22, 118, 207, 0.082);
 }
 
-
-/*para el index de solo admin*/
-
-
+/* Para el index de solo admin */
 .parent {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 20px;
     margin-top: 5%;
 }
 
@@ -231,19 +251,37 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
+
 .text-box {
-    background-color: #f3f3f3; /* Color de fondo */
-    padding: 10px 15px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f3f3f3;
+    padding: 10px 15px;
+    border-radius: 5px;
     font-size: 16px;
-    color: #333; /* Color del texto */
-    width: fit-content; /* Ajusta el ancho al contenido */
-    border-left: 5px solid #1676cf; /* Borde lateral */
+    color: #333;
+    width: fit-content;
+    border-left: 5px solid #1676cf;
 }
 
 .box:hover {
     background-color: rgba(22, 118, 207, 0.1);
     transform: scale(1.05);
     color: #555;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 }
+
+/* Animaciones de desvanecimiento para los cuadros */
+@keyframes fadeInBox {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.box {
+    animation: fadeInBox 1s ease-out;
+}
+
+
 

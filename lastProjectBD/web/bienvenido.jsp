@@ -36,6 +36,7 @@
             <nav class="nav">
                 <ul>
                     <a class="logo" href="">CODINGRAPH;</a>
+                    <a class="nav-link" href="upload.jsp">Subir Archivo</a>
                     <a class="nav-link" href="index.jsp">Log-out</a>
                 </ul>
             </nav>
@@ -60,7 +61,7 @@
                 </div>
                 <div class="box addP"><a class="addCustomers" href="addSuppliers.jsp">Agregar Proveedores</a>
                     <p class="text-box">Aquí puedes gestionar los proveedores:<br> agregar nuevos proveedores <br> y mantener su información actualizada.</p>
-                    
+
                 </div>
                 <div class="box addU"> <a class="addCustomers" href="addUsers.jsp">Agregar Usuarios</a>
                     <p class="text-box">
@@ -68,11 +69,10 @@
                         asignarles roles y <br> 
                         mantener su información actualizada.
                     </p>
-                   
+
                 </div>
             </div>
-
-
+            
 
 
             <% } else if ("user".equals(rol)) { %>
