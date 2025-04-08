@@ -11,8 +11,7 @@
         <header>
             <nav class="nav">
                 <ul>
-                    <a class="logo" href="">CODINGRAPH;</a>
-                    <a class="nav-link" href="upload.jsp">Subir Archivo</a>
+                    <a class="logo" href="bienvenido.jsp">CODINGRAPH;</a>
                     <a class="nav-link" href="index.jsp">Log-out</a>
                 </ul>
             </nav>

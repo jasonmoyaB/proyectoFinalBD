@@ -20,7 +20,7 @@ public class UploadFileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Usar una ruta absoluta para la carpeta uploads
-        String uploadDirectory = "C:\\Users\\jason\\OneDrive - Universidad Fidélitas\\Escritorio\\proyectoFinalBD\\uploads"; // Cambia esto a la ruta correcta
+        String uploadDirectory = "C:\\Users\\jason\\OneDrive - Universidad Fidélitas\\Escritorio\\proyectoFinalBD\\uploads"; // ruta en que se guarda
 
         // Verificar si la ruta de carga es válida
         File uploadDir = new File(uploadDirectory);
