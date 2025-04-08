@@ -62,6 +62,13 @@
     </form>
 
     <h2>Clientes Registrados</h2>
+    <!-- From Uiverse.io by ZAKARIAE48CHELLE --> 
+            <div class="input-wrapper">
+                
+                    <input type="text" name="search" class="input" placeholder="Buscar clientes..." />
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
     <table>
         <tr>
             <th>Nombre</th>

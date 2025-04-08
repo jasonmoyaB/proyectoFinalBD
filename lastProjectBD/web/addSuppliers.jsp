@@ -52,6 +52,13 @@
             </form>
 
             <h2>Proveedores Registrados</h2>
+            <!-- From Uiverse.io by ZAKARIAE48CHELLE --> 
+            <div class="input-wrapper">
+                
+                    <input type="text" name="search" class="input" placeholder="Buscar proveedores..." />
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
             <table>
                 <tr>
                     

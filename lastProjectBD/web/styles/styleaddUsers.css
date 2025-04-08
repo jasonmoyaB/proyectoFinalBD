@@ -1,116 +1,210 @@
+/* Estilos generales */
 body {
-    background-color: #ffffff;
+    background-color: #f4f6f9;
     background-attachment: fixed;
     background-size: cover;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Aquí se establece Arial para todo el texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s ease;
 }
 
+/* Header estilizado */
 header {
-    width: 50%;
-    height: 70px;
-    padding: 10px 60%;
-    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 80px;
+    padding: 0 5%;
+    background-color: #ffffffcc; /* un blanco translúcido */
     position: fixed;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.384);
     top: 0;
+    left: 0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease-in-out;
 }
 
+/* Logo */
 .logo {
-    justify-content: center;
-    align-items: center;
-    color: rgb(1, 141, 255);
+    color: #007bff;
     font-weight: bold;
-    position: absolute;
-    left: 52px;
-    font-size: 50px;
+    font-size: 36px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100px;
+    transition: color 0.3s ease;
 }
 
 .logo:hover {
-    color: rgb(83, 110, 201);
+    color: #559bff;
 }
 
+/* Navegación */
 .nav-link {
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(22, 118, 207);
-    font-size: 20px;
+    padding: 10px 18px;
+    margin: 0 5px;
+    color: #1676cf;
+    font-size: 18px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    
 }
 
 .nav-link:hover {
-    color: #d6dce0;
-    transform: scale(1.1);
-    background-color: rgba(22, 118, 207, 0.082);
+    color: #ffffff;
+    background-color: #1676cf;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(22, 118, 207, 0.2);
 }
 
-/* Estilo general de la tabla */
+/* Tabla */
 table {
-    width: 100%;
+    width: 90%;
+    margin: 120px auto 50px;
     border-collapse: collapse;
-    margin-top: 5%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Estilo de las celdas y cabeceras */
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-/* Fondo de las cabeceras */
+/* Encabezados */
 th {
     background-color: #007bff;
     color: white;
     font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Estilo para las filas de la tabla */
+/* Celdas */
+th, td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Filas alternas */
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f8f9fc;
 }
 
-tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-/* Estilo al pasar el mouse sobre una fila */
 tr:hover {
-    background-color: #eaeaea;
+    background-color: #e2ecf9;
+    transition: background-color 0.3s ease;
 }
 
-/* Estilo para los botones de acción */
+/* Botones */
 button {
-    padding: 8px 15px;
+    padding: 10px 20px;
     font-size: 14px;
     color: white;
     background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 91, 187, 0.2);
 }
 
-/* Estilo de la sección de título */
+/* Título */
 h2 {
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
+    text-align: center;
+    margin-top: 120px;
     margin-bottom: 20px;
+    animation: slideDown 1s ease;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
+
+/* From Uiverse.io by ZAKARIAE48CHELLE */ 
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+
+.input {
+    border-style: none;
+    height: 50px;
+    width: 200px;  /* Aumenté el ancho del input para que se vea bien */
+    padding: px;
+    outline: none;
+    border-radius: 25px;  /* Cambié el radio para que se vea más elegante */
+    transition: 0.5s ease-in-out;
+    background-color: #fff;
+    color: #fff;
+    padding-right: 40px;
+}
+
+.input::placeholder,
+.input {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-size: 17px;
+    color: black;
+}
+
+.input::placeholder {
+    color: #8f8f8f;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 80px;  /* Aumenté el ancho para que sea proporcional */
+    height: 50px;
+    background-color: #1557c0;
+    color: white;
+    border-radius: 25px;  /* Coincide con el radio del input */
+    border: none;
+    padding: 0 10px;  /* Espaciado entre el texto y el ícono */
+    transition: 0.2s linear;
+}
+
+.icon span {
+    margin-right: 8px;  /* Espacio entre el texto y el ícono */
+    font-size: 16px;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.icon:focus ~ .input,
+.input:focus {
+    box-shadow: none;
+    width: 250px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 3px solid #1557c0;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
 

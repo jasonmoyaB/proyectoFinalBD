@@ -11,6 +11,13 @@ body {
     margin: 0;
     padding: 0;
     background: url(https://images7.alphacoders.com/133/thumb-1920-1338609.png);
+    background-size: cover;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .login-container {
@@ -23,12 +30,35 @@ body {
     backdrop-filter: blur(0.4rem);
     -webkit-backdrop-filter: blur(0.4rem);
     text-align: center;
+    animation: slideIn 1.2s ease;
+    transition: transform 0.3s ease;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .login-container h1 {
     font-family: Arial;
     margin-top: 15%;
     color: #fff;
+    animation: fadeInText 1.5s ease forwards;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .login-input label, .login-password label {
@@ -36,6 +66,7 @@ body {
     margin-top: 10%;
     font-size: 25px;
     color: #fff;
+    transition: color 0.3s;
 }
 
 .login-input input, .login-password input {
@@ -46,6 +77,14 @@ body {
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.075);
     color: #fff;
+    transition: all 0.3s ease;
+}
+
+.login-input input:focus, .login-password input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }
 
 .login-button input {
@@ -59,7 +98,7 @@ body {
     font-size: 19px;
     cursor: pointer;
     border: none;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .login-button input:hover {
@@ -71,13 +110,15 @@ body {
 /* Ajuste de la posición del botón "Volver" */
 .volver {
     text-align: center;
-    margin-top: 20px; /* Mueve el botón hacia abajo */
+    margin-top: 20px;
+    animation: fadeIn 2s ease;
 }
 
 .volver a {
     text-decoration: none;
     font-size: 20px;
     color: rgb(255, 254, 254);
+    transition: color 0.3s ease;
 }
 
 .volver a:hover {

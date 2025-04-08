@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import oracle.jdbc.OracleTypes;
 
 @WebServlet("/AgregarUsuarioServlet")
 public class AgregarUsuarioServlet extends HttpServlet {
@@ -21,8 +22,9 @@ public class AgregarUsuarioServlet extends HttpServlet {
         List<Usuario> usuarios = new ArrayList<>();
         Conexion conexion = new Conexion();
         Connection conn = conexion.conectar();
+        
 
-        String sql = "SELECT * FROM usuario_completo_CRUD_V"; // Usando la vista en lugar de la tabla
+        String sql = "SELECT * FROM usuario_completo_CRUD_V"; // Usando la vista 
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
@@ -48,7 +50,46 @@ public class AgregarUsuarioServlet extends HttpServlet {
         }
         return usuarios;
     }
-
+//     private List<Usuario> obtenerUsuariosConBusqueda(String search) {
+//        List<Usuario> usuarios = new ArrayList<>();
+//        Conexion conexion = new Conexion();
+//        Connection conn = conexion.conectar();
+//
+//        // Llamada al procedimiento almacenado BuscarUsuarios_SP
+//        String sql = "{call BuscarUsuarios_SP(?, ?)}";  // Llamada al SP
+//        try (CallableStatement cs = conn.prepareCall(sql)) {
+//            cs.setString(1, search); // Establecer el valor de p_search
+//            cs.registerOutParameter(2, OracleTypes.CURSOR); // Registrar el cursor de salida
+//
+//            // Ejecutar el procedimiento
+//            cs.execute();
+//
+//            // Obtener el cursor con los resultados
+//            try (ResultSet rs = (ResultSet) cs.getObject(2)) {
+//                while (rs.next()) {
+//                    Usuario usuario = new Usuario();
+//                    usuario.setId_usuario(rs.getInt("id_usuario"));
+//                    usuario.setNombre(rs.getString("nombre"));
+//                    usuario.setCorreo(rs.getString("correo"));
+//                    usuario.setContraseña(rs.getString("contraseña"));
+//                    usuario.setNombreRol(rs.getString("nombre_rol"));
+//                    usuario.setNombreDepartamento(rs.getString("nombre_departamento"));
+//                    usuarios.add(usuario);
+//                }
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                if (conn != null) {
+//                    conn.close();
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return usuarios;
+//    }
     // Método para manejar la solicitud POST (agregar un usuario)
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
