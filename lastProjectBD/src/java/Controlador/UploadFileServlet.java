@@ -29,7 +29,7 @@ public class UploadFileServlet extends HttpServlet {
         }
 
         // Obtenemos el archivo subido
-        Part filePart = request.getPart("file"); // 'file' es el nombre del input file
+        Part filePart = request.getPart("file"); 
         if (filePart == null) {
             request.setAttribute("errorMessage", "No se ha seleccionado ningún archivo.");
             request.getRequestDispatcher("upload.jsp").forward(request, response);
