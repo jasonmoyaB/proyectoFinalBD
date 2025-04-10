@@ -1,12 +1,19 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+}
+
 header {
-    width: 50%;
+    width: 100%;
     height: 70px;
-    padding: 10px 60%;
-    background-color: rgb(255, 255, 255);
+    padding: 10px 5%;
+    background-color: white;
     position: fixed;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.384);
     top: 0;
-    animation: slideInLeft 1s ease-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    animation: slideInLeft 0.8s ease-out;
 }
 
 @keyframes slideInLeft {
@@ -20,17 +27,20 @@ header {
     }
 }
 
-.logo {
-    justify-content: center;
+.nav ul {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    color: rgb(1, 141, 255);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    font-size: 32px;
     font-weight: bold;
-    position: absolute;
-    left: 52px;
-    font-size: 50px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100px;
+    color: rgb(1, 141, 255);
     transition: color 0.3s;
 }
 
@@ -39,108 +49,256 @@ header {
 }
 
 .nav-link {
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
     color: rgb(22, 118, 207);
-    font-size: 20px;
     text-decoration: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #d6dce0;
-    transform: scale(1.1);
-    background-color: rgba(22, 118, 207, 0.082);
+    background-color: rgba(22, 118, 207, 0.1);
+    color: #123d5a;
+    transform: scale(1.05);
 }
-/* Contenedor principal para el adjuntador de archivos */
-.file-upload-container {
-    margin-top: 60px; /* Espacio desde la parte superior */
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+
+.main-content {
+    margin-top: 100px;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Estilo del título */
-.file-upload-container h2 {
-    font-size: 24px;
-    color: rgb(22, 118, 207);
-    margin-bottom: 20px;
-    font-weight: bold;
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Mensajes de éxito o error */
-.success-message, .error-message {
-    margin: 10px 0;
-    padding: 10px;
+.intro h1 {
+    font-size: 36px;
+    color: #0e73cc;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 18px;
+    color: #333;
+}
+
+.info {
     font-size: 16px;
-    font-weight: bold;
+    color: #555;
+    margin-top: 5px;
+}
+
+.file-upload-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.file-upload-container h2 {
+    color: #1676cf;
+    margin-bottom: 20px;
+}
+
+.file-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px auto 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.file-input:hover {
+    background-color: #e3f2fd;
+}
+
+.submit-btn {
+    background-color: #1676cf;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #125eac;
+}
+
+.success-message, .error-message {
+    margin: 15px auto;
+    padding: 12px;
     border-radius: 5px;
+    font-weight: bold;
+    width: 80%;
+    text-align: left;
+    border-left: 5px solid;
 }
 
 .success-message {
     background-color: #d4edda;
     color: #155724;
+    border-color: #28a745;
 }
 
 .error-message {
     background-color: #f8d7da;
     color: #721c24;
-}
-
-/* Estilo del input de archivo */
-.file-input {
-    display: inline-block;
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    background-color: #f3f3f3;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.file-input:hover {
-    background-color: rgba(22, 118, 207, 0.1);
-}
-
-/* Estilo del botón de subir archivo */
-.submit-btn {
-    background-color: rgb(22, 118, 207);
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: rgb(83, 110, 201);
-}
-
-/* Estilo para los bordes de los mensajes de retroalimentación */
-.success-message, .error-message {
-    border-left: 5px solid;
-    padding-left: 10px;
-}
-
-.success-message {
-    border-color: #28a745;
-}
-
-.error-message {
     border-color: #dc3545;
+}
+
+.history {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.history h3 {
+    color: #1676cf;
+    margin-bottom: 10px;
+}
+
+.file-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.file-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+footer {
+    background-color: #e0e0e06c;
+    padding: 40px 10%;
+    margin-top: 5%;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    
+}
+
+/* Logo del footer */
+.footerLogo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007BFF;
+    
+}
+
+/* Menú del footer */
+.footerMenu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.footerMenu li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    
+}
+
+.footerMenu li a:hover {
+    color: #0056b3;
+    border: #0056b3;
+    transform: scale(1.05);
+    color: grey;
+    transform: scale(1.1); 
+}
+
+/* From Uiverse.io by vinodjangid07 */ 
+.card {
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+  margin-left: 80%
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: .3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: .3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
