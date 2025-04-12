@@ -39,7 +39,7 @@ create sequence proveedores_seq
 start with 1
 increment by 1;
 
-create sequence proyectos_seq
+create sequence SEQ_PROYECTO_ID_PROYECTO
 start with 1
 increment by 1;
 

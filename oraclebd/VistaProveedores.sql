@@ -6,5 +6,7 @@ SELECT
     TELEFONO
 FROM 
     fide_proveedores_tb;
+    
+    
 
 
