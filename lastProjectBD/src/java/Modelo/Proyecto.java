@@ -7,71 +7,99 @@ import java.util.Date;
  * @author adria
  */
 public class Proyecto {
-    private int id_proyecto;
-    private String nombre_proyecto;
-    private String descripcion_proyecto;
-    private Date fechaInicio_p;
-    private Date fechaFin_p;
-    private String estado_p;
-    private Date fechaCreacion_p;
+    private int proyectoId;
+    private String nombreProyecto;
+    private String descripcion;
+    private Date fechaCreacion;
+    private int usuarioId;
+    private String createdBy;
+    private Date creationDate;
+    private String lastUpdateBy;
+    private Date lastUpdateDate;
+    private String accion;
     
-    public int getId_proyecto() {
-        return id_proyecto;
+    public int getProyectoId() {
+        return proyectoId;
     }
-    
-    public void setId_proyecto(int id_proyecto) {
-        this.id_proyecto = id_proyecto;
+
+    public void setProyectoId(int proyectoId) {
+        this.proyectoId = proyectoId;
     }
-    
-    public String getNombre_proyecto() {
-        return nombre_proyecto;
+
+    public String getNombreProyecto() {
+        return nombreProyecto;
     }
-    
-    public void setNombre_proyecto(String nombre_proyecto) {
-        this.nombre_proyecto = nombre_proyecto;
+
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
     }
-    
-    public String getDescripcion_proyecto() {
-        return descripcion_proyecto;
+
+    public String getDescripcion() {
+        return descripcion;
     }
-    
-    public void setDescripcion_proyecto(String descripcion_proyecto) {
-        this.descripcion_proyecto = descripcion_proyecto;
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-    
-    public Date getFechaInicio_p() {
-        return fechaInicio_p;
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
     }
-    
-    public void setFechaInicio_p(Date fechaInicio_p) {
-        this.fechaInicio_p = fechaInicio_p;
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
-    
-    public Date getFechaFin_p() {
-        return fechaFin_p;
+
+    public int getUsuarioId() {
+        return usuarioId;
     }
-    
-    public void setFechaFin_p(Date fechaFin_p) {
-        this.fechaFin_p = fechaFin_p;
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
-    
-    public String getEstado_p() {
-        return estado_p;
+
+    public String getCreatedBy() {
+        return createdBy;
     }
-    
-    public void setEstado_p(String estado_p) {
-        this.estado_p = estado_p;
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
-    
-    public Date getFechaCreacion_p() {
-        return fechaCreacion_p;
+
+    public Date getCreationDate() {
+        return creationDate;
     }
-    
-    public void setFechaCreacion_p(Date fechaCreacion_p) {
-        this.fechaCreacion_p = fechaCreacion_p;
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getLastUpdateBy() {
+        return lastUpdateBy;
+    }
+
+    public void setLastUpdateBy(String lastUpdateBy) {
+        this.lastUpdateBy = lastUpdateBy;
+    }
+
+    public Date getLastUpdateDate() {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate(Date lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
+    }
+
+    public String getAccion() {
+        return accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
     }
     
 }
+
 
 
 
