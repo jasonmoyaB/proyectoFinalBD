@@ -78,6 +78,32 @@
             <% } else if ("user".equals(rol)) { %>
             <!-- Contenido exclusivo para usuarios -->
             <h3>Contenido exclusivo para usuarios.</h3>
+             <div class="parent">
+                <div class="box addProject">
+                    <a class="addProjects" href="addProjects.jsp">Agregar Proyectos</a>
+                    <p class="text-box">
+                        Aquí puedes gestionar tus proyectos:<br>
+                        agregar nuevos proyectos y<br>
+                        mantenerlos organizados.
+                    </p>
+                </div>
+                <div class="box addTask">
+                    <a class="addTasks" href="addTask.jsp">Agregar Tareas</a>
+                    <p class="text-box">
+                        Aquí puedes gestionar tus tareas:<br>
+                        agregar nuevas tareas y<br>
+                        asignarlas a tus proyectos.
+                    </p>
+                </div>
+                <div class="box calendar">
+                    <a class="viewCalendar" href="calendar.jsp">Calendario</a>
+                    <p class="text-box">
+                        Consulta el calendario para<br>
+                        ver las fechas de tus tareas y<br>
+                        mantenerte al día.
+                    </p>
+                </div>
+            </div>
             <% } %>
         </div>
 

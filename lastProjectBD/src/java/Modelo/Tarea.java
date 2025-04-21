@@ -1,37 +1,47 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Modelo;
 
-import java.util.Date;
 /**
  *
  * @author adria
  */
-public class Proyecto {
-    private int proyectoId;
-    private String nombreProyecto;
+
+import java.util.Date;
+
+public class Tarea {
+    private int tareaId;
+    private String nombre;
     private String descripcion;
-    private Date fechaCreacion;
+    private String estado;
+    private Date fechaLimite;
+    private int proyectoId;
     private int usuarioId;
     private String createdBy;
     private Date creationDate;
     private String lastUpdateBy;
     private Date lastUpdateDate;
     private String accion;
-    
-    public int getProyectoId() {
-        return proyectoId;
+    private long tiempoDedicado;
+
+    // Getters y Setters
+
+    public int getTareaId() {
+        return tareaId;
     }
 
-    public void setProyectoId(int proyectoId) {
-        this.proyectoId = proyectoId;
+    public void setTareaId(int tareaId) {
+        this.tareaId = tareaId;
     }
 
-    public String getNombreProyecto() {
-        return nombreProyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreProyecto(String nombreProyecto) {
-        this.nombreProyecto = nombreProyecto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -42,12 +52,28 @@ public class Proyecto {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Date getFechaLimite() {
+        return fechaLimite;
+    }
+
+    public void setFechaLimite(Date fechaLimite) {
+        this.fechaLimite = fechaLimite;
+    }
+
+    public int getProyectoId() {
+        return proyectoId;
+    }
+
+    public void setProyectoId(int proyectoId) {
+        this.proyectoId = proyectoId;
     }
 
     public int getUsuarioId() {
@@ -97,9 +123,13 @@ public class Proyecto {
     public void setAccion(String accion) {
         this.accion = accion;
     }
-    
+
+    public long getTiempoDedicado() {
+        return tiempoDedicado;
+    }
+
+    public void setTiempoDedicado(long tiempoDedicado) {
+        this.tiempoDedicado = tiempoDedicado;
+    }
 }
-
-
-
 
