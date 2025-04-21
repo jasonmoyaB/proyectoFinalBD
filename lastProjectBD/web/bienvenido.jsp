@@ -88,7 +88,7 @@
                     </p>
                 </div>
                 <div class="box addTask">
-                    <a class="addTasks" href="addTasks.jsp">Agregar Tareas</a>
+                    <a class="addTasks" href="addTask.jsp">Agregar Tareas</a>
                     <p class="text-box">
                         Aquí puedes gestionar tus tareas:<br>
                         agregar nuevas tareas y<br>
