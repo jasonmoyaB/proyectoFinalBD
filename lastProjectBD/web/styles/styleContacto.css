@@ -69,7 +69,7 @@ header {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
-    
+
 }
 h2 {
     color: #007bff;
@@ -145,6 +145,60 @@ button:hover {
 }
 .shadow {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container {
+    /* Lo que ya tenías */
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1%;
+    animation: aparecerSuave 1s ease-out;
+}
+
+.comentario-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.comentario-form textarea,
+.comentario-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.comentario-form button {
+    padding: 10px 20px;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comentario-form button:hover {
+    background-color: #005fcc;
 }
 footer {
     margin-top: 5%;
