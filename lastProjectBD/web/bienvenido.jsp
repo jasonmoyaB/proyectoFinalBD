@@ -36,14 +36,21 @@
             <nav class="nav">
                 <ul>
                     <a class="logo" href="">CODINGRAPH;</a>
-                    <a class="nav-link" href="upload.jsp">Subir Archivo</a>
+                    
                     <a class="nav-link" href="index.jsp">Log-out</a>
+
                 </ul>
             </nav>
+
         </header>
 
-        <div class="container">           
+        <div class="container">        
+            <div class="submenu">
+                <a class="comentariosTap" href="comentarios.jsp">Ver Comentarios</a>
+                <a class="comentariosTap" href="upload.jsp">Subir Archivo</a>
+            </div>
             <h1>Bienvenido, <%= username %>!</h1>
+
             <h2>
                 <% if ("admin".equals(rol)) { %>
                 Bienvenido al panel de administración.
@@ -72,13 +79,13 @@
 
                 </div>
             </div>
-            
+
 
 
             <% } else if ("user".equals(rol)) { %>
             <!-- Contenido exclusivo para usuarios -->
             <h3>Contenido exclusivo para usuarios.</h3>
-             <div class="parent">
+            <div class="parent">
                 <div class="box addProject">
                     <a class="addProjects" href="addProjects.jsp">Agregar Proyectos</a>
                     <p class="text-box">
@@ -88,7 +95,7 @@
                     </p>
                 </div>
                 <div class="box addTask">
-                    <a class="addTasks" href="addTask.jsp">Agregar Tareas</a>
+                    <a class="addTasks" href="styles/addTask.jsp">Agregar Tareas</a>
                     <p class="text-box">
                         Aquí puedes gestionar tus tareas:<br>
                         agregar nuevas tareas y<br>
