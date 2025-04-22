@@ -36,7 +36,7 @@
             <nav class="nav">
                 <ul>
                     <a class="logo" href="">CODINGRAPH;</a>
-                    
+
                     <a class="nav-link" href="index.jsp">Log-out</a>
 
                 </ul>
@@ -45,10 +45,7 @@
         </header>
 
         <div class="container">        
-            <div class="submenu">
-                <a class="comentariosTap" href="comentarios.jsp">Ver Comentarios</a>
-                <a class="comentariosTap" href="upload.jsp">Subir Archivo</a>
-            </div>
+
             <h1>Bienvenido, <%= username %>!</h1>
 
             <h2>
@@ -61,7 +58,10 @@
 
             <% if ("admin".equals(rol)) { %>
             <!-- Contenido exclusivo para administradores -->
-
+            <div class="submenu">
+                <a class="comentariosTap" href="comentarios.jsp">Ver Comentarios</a>
+                <a class="comentariosTap" href="upload.jsp">Subir Archivo</a>
+            </div>
             <div class="parent">
                 <div class="box addC"><a class="addCustomers" href="addCostumers.jsp">Agregar Clientes</a>
                     <p class="text-box">Aquí puedes gestionar los clientes:<br> agregar, editar o eliminar.</p>
