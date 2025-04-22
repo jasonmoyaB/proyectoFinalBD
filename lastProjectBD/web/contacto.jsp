@@ -28,7 +28,15 @@
             <p class="p_contactanos">¿Tienes alguna pregunta, sugerencia o necesitas más información? <br>Estamos aquí para ayudarte</p>
         </div>
 
-
+        <div class="form-container">
+            <h2>Deja tu comentario</h2>
+            <p>Tu comentario sera anonimo</p>
+            <form action="AgregarComentarioServlet" method="post" class="comentario-form">
+                <label for="contenido">Comentario:</label><br>
+                <textarea id="contenido" name="contenido" rows="4" required></textarea><br>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
         <!-- From Uiverse.io by absoluteSTrange --> 
         <div class="card-container">
             <div class="card shadow">
@@ -46,15 +54,7 @@
         </div>
 
         <!-- Formulario para agregar comentario -->
-        <div class="form-container">
-            <h2>Deja tu comentario</h2>
-            <p>sera anonimo</p>
-            <form action="AgregarComentarioServlet" method="post" class="comentario-form">
-                <label for="contenido">Comentario:</label><br>
-                <textarea id="contenido" name="contenido" rows="4" required></textarea><br>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
+
     </div>
     <footer>
         <div class="footer-content">
