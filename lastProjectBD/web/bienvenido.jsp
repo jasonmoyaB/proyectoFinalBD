@@ -59,8 +59,12 @@
             <% if ("admin".equals(rol)) { %>
             <!-- Contenido exclusivo para administradores -->
             <div class="submenu">
+
                 <a class="comentariosTap" href="comentarios.jsp">Ver Comentarios</a>
+                <a class="comentariosTap" href="addCategoria.jsp">Categorias Proyectos</a>
                 <a class="comentariosTap" href="upload.jsp">Subir Archivo</a>
+
+
             </div>
             <div class="parent">
                 <div class="box addC"><a class="addCustomers" href="addCostumers.jsp">Agregar Clientes</a>

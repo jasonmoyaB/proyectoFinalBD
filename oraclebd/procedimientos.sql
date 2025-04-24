@@ -496,3 +496,26 @@ BEGIN
     VALUES (p_nombre_proveedor, p_contacto, p_telefono);
     COMMIT;
 END insertar_proveedores;
+CREATE OR REPLACE PROCEDURE actualizar_categoria(
+    p_id_categoria IN NUMBER,
+    p_nombre_categoria IN VARCHAR2,
+    p_id_proyecto IN NUMBER
+) AS
+BEGIN
+    UPDATE fide_categorias_tb
+    SET 
+        nombre_categoria = p_nombre_categoria,
+        id_proyecto = p_id_proyecto
+    WHERE id_categoria = p_id_categoria;
+
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Categoría actualizada correctamente.');
+END actualizar_categoria;
+CREATE OR REPLACE PROCEDURE eliminar_categoria(
+    p_id_categoria IN NUMBER
+) AS
+BEGIN
+    DELETE FROM fide_categorias_tb WHERE id_categoria = p_id_categoria;
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Categoría eliminada correctamente.');
+END eliminar_categoria;
