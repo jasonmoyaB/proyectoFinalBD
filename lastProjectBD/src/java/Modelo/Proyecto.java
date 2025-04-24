@@ -1,23 +1,20 @@
-
 package Modelo;
 
-import java.util.Date;
-/**
- *
- * @author adria
- */
+import java.sql.Date;
+
 public class Proyecto {
-    private int proyectoId;
-    private String nombreProyecto;
-    private String descripcion;
-    private Date fechaCreacion;
-    private int usuarioId;
-    private String createdBy;
-    private Date creationDate;
-    private String lastUpdateBy;
-    private Date lastUpdateDate;
-    private String accion;
-    
+    private int proyectoId; // PROYECTO_ID
+    private String nombreProyecto; // NOMBRE_PROYECTO
+    private String descripcion; // DESCRIPCION
+    private Date fechaCreacion; // FECHA_CREACION
+    private int usuarioId; // USUARIO_ID
+    private String createdBy; // CREATED_BY
+    private Date creationDate; // CREATION_DATE
+    private String lastUpdateBy; // LAST_UPDATE_BY
+    private Date lastUpdateDate; // LAST_UPDATE_DATE
+    private String accion; // ACCION
+
+    // Getters y Setters
     public int getProyectoId() {
         return proyectoId;
     }
@@ -97,9 +94,4 @@ public class Proyecto {
     public void setAccion(String accion) {
         this.accion = accion;
     }
-    
 }
-
-
-
-
