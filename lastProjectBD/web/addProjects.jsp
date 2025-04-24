@@ -1,52 +1,67 @@
 <%-- 
-    Document   : addProjects
-    Created on : 9 abr 2025, 5:44:36 p. m.
+    Document   : calendar
+    Created on : 23 abr 2025
     Author     : adria
 --%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Agregar Proyecto</title>
-    <!-- Usar el mismo archivo CSS que addUsers.jsp -->
-    <link rel="stylesheet" href="styles/styleAddProjects.css">
+    <title>Calendario de Tareas</title>
+    <link rel="stylesheet" href="styles/styleCalendar.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js" rel="stylesheet">
 </head>
 <body>
-    <div class="form-container">
-        <h1 class="form-title">Agregar Nuevo Proyecto</h1>
-        <form action="AgregarProyectoServlet" method="post">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" class="form-input" required>
-            </div>
-            <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" class="form-input" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="fechaInicio">Fecha de inicio:</label>
-                <input type="date" id="fechaInicio" name="fechaInicio" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="fechaFin">Fecha de fin:</label>
-                <input type="date" id="fechaFin" name="fechaFin" class="form-input">
-            </div>
-            <div class="form-group">
-                <label for="estado">Estado:</label>
-                <select id="estado" name="estado" class="form-input">
-                    <option value="PENDIENTE">Pendiente</option>
-                    <option value="EN_PROGRESO">En progreso</option>
-                    <option value="COMPLETADO">Completado</option>
-                    <option value="CANCELADO">Cancelado</option>
-                </select>
-            </div>
-            <div class="form-buttons">
-                <button type="submit" class="btn-submit">Guardar Proyecto</button>
-                <a href="listarProyectos.jsp" class="btn-cancelar">Cancelar</a>
-            </div>
-        </form>
+    <header>
+        <nav class="nav">
+            <a class="logo" href="bienvenido.jsp">CODINGRAPH;</a>
+            <ul class="nav-links">
+                <li><a href="addTask.jsp" class="nav-link">Agregar Tarea</a></li>
+                <li><a href="addProjects.jsp" class="nav-link">Agregar Proyecto</a></li>
+                <li><a href="index.jsp" class="nav-link">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="calendar-container">
+        <h1 class="calendar-title">Calendario de Tareas</h1>
+        <div id="calendar"></div>
     </div>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es', // Idioma español
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    <c:forEach items="${tareas}" var="tarea">
+                    {
+                        title: '${tarea.nombreTarea}',
+                        start: '${tarea.fechaLimite}',
+                        description: '${tarea.descripcion}',
+                        backgroundColor: '${tarea.estado == "Completada" ? "#4CAF50" : (tarea.estado == "En progreso" ? "#FFC107" : "#F44336")}',
+                        borderColor: '#000',
+                        textColor: '#fff'
+                    },
+                    </c:forEach>
+                ],
+                eventClick: function (info) {
+                    alert('Tarea: ' + info.event.title + '\nDescripción: ' + info.event.extendedProps.description);
+                }
+            });
+            calendar.render();
+        });
+    </script>
 </body>
 </html>
