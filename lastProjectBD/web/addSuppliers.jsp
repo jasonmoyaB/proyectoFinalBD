@@ -54,14 +54,14 @@
             <h2>Proveedores Registrados</h2>
             <!-- From Uiverse.io by ZAKARIAE48CHELLE --> 
             <div class="input-wrapper">
-                
+                <form action="AgregarProvedorServlet" method="get">
                     <input type="text" name="search" class="input" placeholder="Buscar proveedores..." />
                     <button type="submit">Buscar</button>
                 </form>
             </div>
             <table>
                 <tr>
-                    
+
                     <th>Nombre</th>
                     <th>Contacto</th>
                     <th>Teléfono</th>
@@ -71,7 +71,7 @@
                 <!-- Mostrar proveedores desde el Servlet -->
                 <c:forEach var="proveedor" items="${proveedores}">
                     <tr>
-                        
+
                         <td>${proveedor.nombre}</td>
                         <td>${proveedor.contacto}</td>
                         <td>${proveedor.telefono}</td>
