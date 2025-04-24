@@ -66,7 +66,7 @@ public class EliminarCategoriaServlet extends HttpServlet {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT ID_CATEGORIA, NOMBRE_CATEGORIA, NOMBRE_PROYECTO FROM categoria_proyecto_crud_V"; // Asegúrate de que el nombre de la vista sea correcto
+        String sql = "SELECT ID_CATEGORIA, NOMBRE_CATEGORIA, NOMBRE_PROYECTO FROM categoria_proyecto_crud_V";
         try {
             conn = conexion.conectar();
             if (conn != null) {
@@ -74,9 +74,9 @@ public class EliminarCategoriaServlet extends HttpServlet {
                 rs = ps.executeQuery();
                 while (rs.next()) {
                     Categoria categoria = new Categoria();
-                    categoria.setId_categoria(rs.getInt("ID_CATEGORIA"));  // Columna ID_CATEGORIA
-                    categoria.setNombre_categoria(rs.getString("NOMBRE_CATEGORIA"));  // Columna NOMBRE_CATEGORIA
-                    categoria.setNombre_proyecto(rs.getString("NOMBRE_PROYECTO"));  // Columna NOMBRE_PROYECTO
+                    categoria.setId_categoria(rs.getInt("ID_CATEGORIA"));  
+                    categoria.setNombre_categoria(rs.getString("NOMBRE_CATEGORIA"));  
+                    categoria.setNombre_proyecto(rs.getString("NOMBRE_PROYECTO"));  
                     categorias.add(categoria);
                 }
             } else {
