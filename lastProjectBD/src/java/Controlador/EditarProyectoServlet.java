@@ -4,8 +4,8 @@
  */
 package Controlador;
 
+import Modelo.Conexion;
 import Modelo.Proyecto;
-import Modelo.ProyectoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,59 +13,77 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @WebServlet("/EditarProyectoServlet")
 public class EditarProyectoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // Recoger parámetros del formulario
-            int proyectoId = Integer.parseInt(request.getParameter("idProyecto"));
-            String nombreProyecto = request.getParameter("nombre");
-            String descripcion = request.getParameter("descripcion");
-            String fechaInicioStr = request.getParameter("fechaInicio");
-            String lastUpdateBy = request.getParameter("lastUpdateBy");
-            String accion = request.getParameter("accion");
+        // Obtener parámetros del formulario
+        String idProyectoStr = request.getParameter("id_proyecto");
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
 
-            int usuarioId;
-            try {
-                usuarioId = Integer.parseInt(request.getParameter("idUsuario"));
-            } catch (NumberFormatException e) {
-                request.setAttribute("error", "ID de usuario inválido");
-                request.getRequestDispatcher("editProjects.jsp").forward(request, response);
-                return;
-            }
-
-            Date fechaInicio = Date.valueOf(fechaInicioStr); // Formato yyyy-MM-dd
-
-            // Crear objeto Proyecto
-            Proyecto proyecto = new Proyecto();
-            proyecto.setProyectoId(proyectoId);
-            proyecto.setNombreProyecto(nombreProyecto);
-            proyecto.setDescripcion(descripcion);
-            proyecto.setFechaCreacion(fechaInicio);
-            proyecto.setUsuarioId(usuarioId);
-            proyecto.setLastUpdateBy(lastUpdateBy);
-            proyecto.setAccion(accion);
-
-            // Llamar al DAO para actualizar el proyecto
-            ProyectoDAO proyectoDAO = new ProyectoDAO();
-            boolean resultado = proyectoDAO.actualizarProyecto(proyecto);
-
-            if (resultado) {
-                request.setAttribute("msg", "Proyecto actualizado correctamente");
-            } else {
-                request.setAttribute("error", "Error al actualizar el proyecto");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("error", "Error al procesar la solicitud");
+        // Validar parámetros
+        if (idProyectoStr == null || nombre == null || descripcion == null || 
+            idProyectoStr.isEmpty() || nombre.isEmpty() || descripcion.isEmpty()) {
+            request.setAttribute("error", "Todos los campos son obligatorios.");
+            request.getRequestDispatcher("editarProyecto.jsp").forward(request, response);
+            return;
         }
 
-        request.getRequestDispatcher("editProjects.jsp").forward(request, response);
+        int idProyecto;
+
+        try {
+            idProyecto = Integer.parseInt(idProyectoStr);
+        } catch (NumberFormatException e) {
+            request.setAttribute("error", "ID de proyecto inválido.");
+            request.getRequestDispatcher("editarProyecto.jsp").forward(request, response);
+            return;
+        }
+
+        // Crear objeto Proyecto
+        Proyecto proyecto = new Proyecto();
+        proyecto.setId_proyecto(idProyecto);
+        proyecto.setNombre(nombre);
+        proyecto.setDescripcion(descripcion);
+
+        // Conexión a la base de datos
+        Conexion conexion = new Conexion();
+        Connection conn = conexion.conectar();
+
+        if (conn != null) {
+            CallableStatement cs = null;
+            try {
+                String sql = "{call actualizar_proyecto(?, ?, ?)}"; // Procedimiento almacenado
+                cs = conn.prepareCall(sql);
+
+                // Mapear los datos del proyecto al procedimiento almacenado
+                cs.setInt(1, proyecto.getId_proyecto());
+                cs.setString(2, proyecto.getNombre());
+                cs.setString(3, proyecto.getDescripcion());
+
+                cs.execute();
+                request.setAttribute("msg", "Proyecto editado correctamente");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                request.setAttribute("error", "Error al editar el proyecto");
+            } finally {
+                try {
+                    if (cs != null) cs.close();
+                    if (conn != null) conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else {
+            request.setAttribute("error", "No hay conexión con la base de datos");
+        }
+
+        // Redirigir a la lista de proyectos
+        response.sendRedirect("addProjects.jsp");
     }
 }
-
