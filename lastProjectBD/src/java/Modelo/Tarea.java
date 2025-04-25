@@ -10,10 +10,8 @@ public class Tarea {
     private int tareaId;
     private String nombre;
     private String descripcion;
-    private String estado;
     private Date fechaLimite;
-    private int proyectoId;
-    private int usuarioId;
+    
 
     // Constructor vacío
     public Tarea() {}
@@ -50,8 +48,6 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    
-
     public Date getFechaLimite() {
         return fechaLimite;
     }
@@ -60,4 +56,3 @@ public class Tarea {
         this.fechaLimite = fechaLimite;
     }
 }
-
