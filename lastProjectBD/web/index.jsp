@@ -1,11 +1,3 @@
-
-
-<%-- 
-    Document   : index
-    Created on : 22 feb. 2025, 10:30:01
-    Author     : jason
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,7 +40,10 @@
                 </div>
             </div>
         </div>
-
+        <div class="funciones">
+            <h1> ¿En qué ayudamos?</h1>           
+            <p>Te ayudamos a organizar tus tareas, gestionar tus datos y mantener<br> todo bajo control desde un solo lugar. Más orden, menos estrés.</p>    
+        </div>
         <div class="moreInfo">
             <div class="info">
                 <div class="text">
@@ -80,6 +75,29 @@
                 <img src="img/fotoinfo3.jpg" alt="">
             </div>
         </div>
+        <div class="funciones">
+            <h1>Funciones</h1>           
+            <p>Personaliza tu lista de tareas pendientes con diferentes modos de <br >visualización</p>    
+        </div>
+        <div class="contenedorFunciones">
+            <div class="imgFunciones">
+                <img src="img/calendario.jpg"  alt="Calendario">
+            </div>
+            <div class="textoFunciones">
+                <h2>Vista de Calendario</h2>
+                <p>Organiza y visualiza tus tareas en un calendario fácil de usar. Arrastra y suelta actividades para reprogramarlas y mantén tus plazos siempre bajo control.</p>
+            </div>
+        </div>
+        <div class="contenedorFunciones reverse">
+            <div class="textoFunciones">
+                <h2>Vista de CRUDs</h2>
+                <p>Gestiona la creación, lectura, actualización y eliminación de datos de manera sencilla. Ideal para administrar usuarios, productos o cualquier tipo de información de forma eficiente.</p>
+            </div>
+            <div class="imgFunciones">
+                <img src="img/Cruds.PNG" height="400px" alt="CRUD">
+            </div>
+        </div>
+
 
 
         <footer>
