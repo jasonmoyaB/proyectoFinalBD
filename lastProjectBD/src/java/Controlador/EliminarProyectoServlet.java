@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Modelo.ProyectoDAO;
+import Modelo.Conexion;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,31 +12,43 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 @WebServlet("/EliminarProyectoServlet")
 public class EliminarProyectoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // Recoger el ID del proyecto
-            int proyectoId = Integer.parseInt(request.getParameter("idProyecto"));
+        int idProyecto = Integer.parseInt(request.getParameter("id_proyecto"));
 
-            // Llamar al DAO para eliminar el proyecto
-            ProyectoDAO proyectoDAO = new ProyectoDAO();
-            boolean resultado = proyectoDAO.eliminarProyecto(proyectoId);
+        Conexion conexion = new Conexion();
+        Connection conn = conexion.conectar();
 
-            if (resultado) {
+        if (conn != null) {
+            CallableStatement cs = null;
+            try {
+                String sql = "{call eliminar_proyecto(?)}"; // Procedimiento almacenado
+                cs = conn.prepareCall(sql);
+                cs.setInt(1, idProyecto);
+                cs.execute();
                 request.setAttribute("msg", "Proyecto eliminado correctamente");
-            } else {
+            } catch (SQLException e) {
+                e.printStackTrace();
                 request.setAttribute("error", "Error al eliminar el proyecto");
+            } finally {
+                try {
+                    if (cs != null) cs.close();
+                    if (conn != null) conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("error", "Error al procesar la solicitud");
+        } else {
+            request.setAttribute("error", "No hay conexión con la base de datos");
         }
 
-        request.getRequestDispatcher("listarProyectos.jsp").forward(request, response);
+        request.getRequestDispatcher("addProjects.jsp").forward(request, response);
     }
 }
