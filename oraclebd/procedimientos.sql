@@ -519,3 +519,40 @@ BEGIN
     COMMIT;
     DBMS_OUTPUT.PUT_LINE('Categoría eliminada correctamente.');
 END eliminar_categoria;
+
+CREATE OR REPLACE PROCEDURE insertar_tarea (
+    p_nombre_tarea IN VARCHAR2,
+    p_descripcion IN VARCHAR2,
+    p_estado IN VARCHAR2,
+    p_fecha_limite IN DATE
+
+) AS
+BEGIN
+    INSERT INTO fide_tareas_tb (nombre_tarea, descripcion, estado, fecha_limite)
+    VALUES (p_nombre_tarea, p_descripcion, p_estado, p_fecha_limite);
+    COMMIT;
+END insertar_tarea;
+
+CREATE OR REPLACE PROCEDURE eliminar_tarea (
+    p_id_tarea IN NUMBER
+) AS
+BEGIN
+    DELETE FROM fide_tareas_tb WHERE id_tarea = p_id_tarea;
+    COMMIT;
+END eliminar_tarea;
+CREATE OR REPLACE PROCEDURE actualizar_tarea (
+    p_id_tarea IN NUMBER,
+    p_nombre_tarea IN VARCHAR2,
+    p_descripcion IN VARCHAR2,
+    p_estado IN VARCHAR2,
+    p_fecha_limite IN DATE
+) AS
+BEGIN
+    UPDATE fide_tareas_tb
+    SET nombre_tarea = p_nombre_tarea,
+        descripcion = p_descripcion,
+        estado = p_estado,
+        fecha_limite = p_fecha_limite
+    WHERE id_tarea = p_id_tarea;
+    COMMIT;
+END actualizar_tarea;
